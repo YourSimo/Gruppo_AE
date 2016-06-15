@@ -1,7 +1,6 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.File;
-import it.unibs.ing.fp.hello.Hello;
 import it.unibs.ing.fp.library.OutputData;
 
 public class CartellaSanitaria {
@@ -16,6 +15,8 @@ public class CartellaSanitaria {
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
 	public static void main(String[] args) {
+		printMsg(MSG_INTRO);
+		
 		File fileCartellaSanitaria = new File(NAME_FILE_TITLE);
 	  
 		Paziente paziente = null;
@@ -61,7 +62,10 @@ public class CartellaSanitaria {
 		contenitore = new Contenitore(paziente, listaEsami);
 		OutputData.uploadSingleObject(fileCartellaSanitaria, contenitore);
 	
-		Hello.sayHello(MSG_OUTRO);
+		printMsg(MSG_OUTRO);
+	}
+	private static void printMsg(String msg) {
+		System.out.println(msg);
 	}
 
 	private static ListaEsami makeExamList() {
