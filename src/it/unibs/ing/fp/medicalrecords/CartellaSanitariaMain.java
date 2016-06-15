@@ -19,8 +19,8 @@ public class CartellaSanitariaMain {
 		
 		File fileCartellaSanitaria = new File(NAME_FILE_TITLE);
 	  
-		Paziente paziente = null;
 		ListaEsami listaEsami = null;
+		CartellaSanitaria cartellaSanitaria = null;
 		Contenitore contenitore = null;
 	
 		boolean caricamentoRiuscito = false;
@@ -28,12 +28,12 @@ public class CartellaSanitariaMain {
 		if(fileCartellaSanitaria.exists()) {
 			try {
 				contenitore = (Contenitore)OutputData.loadSingleObject(fileCartellaSanitaria);
-				paziente = contenitore.getPaziente();
 				listaEsami = contenitore.getListaEsami();
+				cartellaSanitaria = contenitore.getCartellaSanitaria();
 			} catch (ClassCastException e) {
 				System.out.println(MSG_NO_CAST);
 			} finally {
-				if ((paziente != null) && (listaEsami != null)) {
+				if ((listaEsami != null) && (cartellaSanitaria != null)) {
 					System.out.println(MSG_OK_FILE);
 					caricamentoRiuscito = true;
 				}
@@ -42,8 +42,7 @@ public class CartellaSanitariaMain {
 	
 		if (!caricamentoRiuscito) {
 			System.out.println(MSG_NO_FILE);
-			paziente = makePatient();
-			listaEsami = makeExamList();
+			cartellaSanitaria = makeMedicalRecords();
 		}
 		/*
 		System.out.println("\n" + MSG_INTRO_PORTFOLIO);
@@ -59,21 +58,26 @@ public class CartellaSanitariaMain {
 		}
 		*/
 		System.out.println(MSG_SALVA);
-		contenitore = new Contenitore(paziente, listaEsami);
+		contenitore = new Contenitore(listaEsami, cartellaSanitaria);
 		OutputData.uploadSingleObject(fileCartellaSanitaria, contenitore);
 	
 		printMsg(MSG_OUTRO);
 	}
+	
 	private static void printMsg(String msg) {
 		System.out.println(msg);
 	}
 
-	private static ListaEsami makeExamList() {
-		return null;
+	private static CartellaSanitaria makeMedicalRecords() {
+		return new CartellaSanitaria(makePatient(), makeExamList());
 	}
-
+	
 	private static Paziente makePatient() {
-		return null;
+		return new Paziente();
+	}
+	
+	private static ListaEsami makeExamList() {
+		return new ListaEsami();
 	}
 }
 

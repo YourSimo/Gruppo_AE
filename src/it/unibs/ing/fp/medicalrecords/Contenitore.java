@@ -9,20 +9,19 @@ import java.io.Serializable;
  *
  */
 public class Contenitore implements Serializable {
-	private Paziente paziente;
 	private ListaEsami listaEsami;
+	private CartellaSanitaria cartellaSanitaria;
 		
-	public Contenitore (Paziente paziente, ListaEsami listaEsami) {
-		this.paziente = paziente;
-		this.listaEsami = listaEsami;		
-	}
-		
-	public Paziente getPaziente() {
-		return paziente;
+	public Contenitore (ListaEsami listaEsami, CartellaSanitaria cartellaSanitaria) {
+		this.listaEsami = listaEsami;
+		this.cartellaSanitaria = cartellaSanitaria;
 	}
 		
 	public ListaEsami getListaEsami() {
 		return listaEsami;
 	}
-
+	
+	public CartellaSanitaria getCartellaSanitaria() {
+		return cartellaSanitaria;
+	}
 }
