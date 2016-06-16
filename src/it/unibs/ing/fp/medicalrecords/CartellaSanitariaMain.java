@@ -2,6 +2,7 @@ package it.unibs.ing.fp.medicalrecords;
 
 
 import java.io.File;
+import java.util.regex.*;
 
 import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
@@ -29,8 +30,12 @@ public class CartellaSanitariaMain {
 	private final static String MSG_CODICE_FISCALE = "Inserisca il proprio codice fiscale";
 	private final static String MSG_GRUPPO_SANGUIGNO = "Inserisca il proprio gruppo sanguigno";
     
-	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inerimento dati. Dato non valido. Ritenti."
+	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
+	private final static String REGEX_ALFABETO = "^[a-zA-Z]+$";
+	private final static String REGEX_INDIRIZZO ="^[a-zA-Z]+\s[a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
+	
+	
 	public static void main(String[] args) {
 		printMsg(MSG_INTRO);
 		
@@ -112,6 +117,11 @@ public class CartellaSanitariaMain {
 		//**************************************************
 		String indirizzo = InputData.readString(MSG_INDIRIZZO);
 		
+		while (validit‡Indirizzo(indirizzo) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    indirizzo = null;
+			indirizzo = InputData.readString(MSG_COGNOME);	
+		};
 		
 		
 		
@@ -158,21 +168,30 @@ public class CartellaSanitariaMain {
 	
 //////////////////////////////////////////////////////////////////////	 
     public static boolean validit‡Nome (String nome){
-    	for(int i = 0; i < nome.length(); i++)
+    	/*for(int i = 0; i < nome.length(); i++)
     	{
     		  char carattere = nome.charAt(i);
     		  if(carattere<65 || ((carattere>90) && (carattere<97) || carattere>122))return false;
     	
     	}
-    	return true;
+    	return true;*/
+    	 if (Pattern.matches(REGEX_ALFABETO, nome))
+    	    return true;
+    	  else
+    	    return false;
     	}
 /////////////////////////////////////////////////////////////////////////	
 	public static boolean validit‡Cognome (String cognome){
 		return validit‡Nome(cognome);
 	}
 //////////////////////////////////////////////////////////////////////	
-	
-	
+	public static boolean validit‡Indirizzo (String indirizzo){
+		if (Pattern.matches(REGEX_INDIRIZZO, indirizzo))
+    	    return true;
+    	  else
+    	    return false;
+	}
+////////////////////////////////////////////////////////////////////////	
 	
 	
 	
