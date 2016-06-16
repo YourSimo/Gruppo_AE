@@ -33,7 +33,14 @@ public class CartellaSanitariaMain {
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
 	private final static String REGEX_ALFABETO = "^[a-zA-Z]+$";
-	private final static String REGEX_INDIRIZZO ="^[a-zA-Z]+\s[a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
+	private final static String REGEX_INDIRIZZO ="^[a-zA-Z]+[\t\n\r\f][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
+	private final static String REGEX_TELEFONO = "^[0-9]+$";
+	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
+	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
+	
+	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
+	
+	
 	
 	
 	public static void main(String[] args) {
@@ -120,17 +127,25 @@ public class CartellaSanitariaMain {
 		while (validit‡Indirizzo(indirizzo) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    indirizzo = null;
-			indirizzo = InputData.readString(MSG_COGNOME);	
+			indirizzo = InputData.readString(MSG_INDIRIZZO);	
 		};
-		
-		
-		
-		
-		
-		
-		
+		//***************************************************
 		String telefono = InputData.readString (MSG_TELEFONO);
+
+		while (validit‡Telefono(telefono) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    telefono = null;
+			telefono = InputData.readString(MSG_TELEFONO);	
+		};
+		//******************************************************
 		String email = InputData.readString (MSG_EMAIL);
+		
+		while (validit‡Email(email) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    email = null;
+			email = InputData.readString(MSG_EMAIL);	
+		};
+		//********************************************************
 		String dataNascita = InputData.readString (MSG_DATA_NASCITA);
 		String luogoNascita = InputData.readString (MSG_LUOGO_NASCITA);
 		String genere = InputData.readString (MSG_GENERE);
@@ -138,10 +153,10 @@ public class CartellaSanitariaMain {
 		//codice sanitario
 		
 		//controllo validit‡ dati
-		String gruppoSanguigno = InputDati.leggiStringa (MSG_GRUPPO_SANGUIGNO);
+		String gruppoSanguigno = InputData.readString (MSG_GRUPPO_SANGUIGNO);
 		
 		
-		
+		//manca regex gruppo sanguigno
 		
 		
 		
@@ -192,8 +207,20 @@ public class CartellaSanitariaMain {
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////	
-	
-	
+	public static boolean validit‡Telefono (String telefono){
+		if (Pattern.matches(REGEX_TELEFONO, telefono))
+    	    return true;
+    	  else
+    	    return false;
+	}
+////////////////////////////////////////////////////////////////////////
+	public static boolean validit‡Email (String email){
+		if (Pattern.matches(REGEX_EMAIL, email))
+    	    return true;
+    	  else
+    	    return false;
+	}
+////////////////////////////////////////////////////////////////////////
 	
 	
 }
