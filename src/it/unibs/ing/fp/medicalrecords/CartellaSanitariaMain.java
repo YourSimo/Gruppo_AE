@@ -178,6 +178,14 @@ public class CartellaSanitariaMain {
 	}
 	
 	private static ListaEsami makeExamList() {
+		
+		
+		
+		
+		
+		
+		
+		
 		return new ListaEsami();
 	}
 	
