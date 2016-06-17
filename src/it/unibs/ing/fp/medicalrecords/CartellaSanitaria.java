@@ -6,6 +6,6 @@ public class CartellaSanitaria {
 	
 	public CartellaSanitaria(Paziente paziente, ListaEsami listaEsami) {
 		this.paziente = paziente;
-		this.listaEsami = listaEsami; //ciao simo
+		this.listaEsami = listaEsami;
 	}
 }

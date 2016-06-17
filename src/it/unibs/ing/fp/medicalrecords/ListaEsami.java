@@ -3,33 +3,31 @@ package it.unibs.ing.fp.medicalrecords;
 import java.util.Vector;
 
 public class ListaEsami {
-
-	private Vector <String> listaEsami;
+	private Vector <Esame> listaEsami;
 	
 	public ListaEsami(){
-		listaEsami=new Vector <String> ();
-		
+		listaEsami = new Vector <Esame> ();	
 	}
-	//metodi per aggiunta rimozione controllo
-	public void addString(String nomeEsame){
-		 listaEsami.add(nomeEsame);
 	
-	 }
+	//	metodi per aggiunta rimozione controllo
 	
-	 public String getString(int i){
-		 return listaEsami.get(i);
-	 
-	 }
+	public void addExam(Esame esame){
+		 listaEsami.add(esame);
+	}
 	
-	 public void removeString(int i){
-		 listaEsami.remove(i);
+	public Esame getExam(int i) {
+		return listaEsami.get(i); 
+	}
 	
-	 }
+	public void removeExam(Esame esame) {
+		 listaEsami.remove(esame);
+	}
 	
-	 public int getSize(){
-		 return listaEsami.size();
-		 
-	 }
+	public int getSize() {
+		 return listaEsami.size();	 
+	}
 	
-	
+	public boolean isEmpty() {
+		return listaEsami.isEmpty();
+	}
 }
