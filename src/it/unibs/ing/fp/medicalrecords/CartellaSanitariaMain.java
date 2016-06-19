@@ -18,7 +18,7 @@ public class CartellaSanitariaMain {
 	
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
-	private final static String MSG_INTRO_INSERIMENTO = "Benvenuto. Di seguito potr‡ inserire i dati personali per la sua cartella medica; tutti i campi sono obbligatori";
+	private final static String MSG_INTRO_INSERIMENTO = "Benvenuto. Di seguito potr√† inserire i dati personali per la sua cartella medica; tutti i campi sono obbligatori";
 	private final static String MSG_NOME = "Inserisca il proprio nome:";
 	private final static String MSG_COGNOME = "Inserisca il proprio cognome:";
 	private final static String MSG_INDIRIZZO = "Inserisca il proprio indirizzo:";
@@ -39,9 +39,6 @@ public class CartellaSanitariaMain {
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
 	
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
-	
-	
-	
 	
 	public static void main(String[] args) {
 		printMsg(MSG_INTRO);
@@ -108,7 +105,7 @@ public class CartellaSanitariaMain {
 		//************************************************
 		String nome = InputData.readString(MSG_NOME);
 		
-		while (validit‡Nome(nome) == false){
+		while (validit√†Nome(nome) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    nome = null;
 			nome = InputData.readString(MSG_NOME);	
@@ -116,7 +113,7 @@ public class CartellaSanitariaMain {
 		//**************************************************
 		String cognome = InputData.readString(MSG_COGNOME);
 		
-		while (validit‡Cognome(cognome) == false){
+		while (validit√†Cognome(cognome) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    cognome = null;
 			cognome = InputData.readString(MSG_COGNOME);	
@@ -124,7 +121,7 @@ public class CartellaSanitariaMain {
 		//**************************************************
 		String indirizzo = InputData.readString(MSG_INDIRIZZO);
 		
-		while (validit‡Indirizzo(indirizzo) == false){
+		while (validit√†Indirizzo(indirizzo) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    indirizzo = null;
 			indirizzo = InputData.readString(MSG_INDIRIZZO);	
@@ -132,7 +129,7 @@ public class CartellaSanitariaMain {
 		//***************************************************
 		String telefono = InputData.readString (MSG_TELEFONO);
 
-		while (validit‡Telefono(telefono) == false){
+		while (validit√†Telefono(telefono) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    telefono = null;
 			telefono = InputData.readString(MSG_TELEFONO);	
@@ -140,7 +137,7 @@ public class CartellaSanitariaMain {
 		//******************************************************
 		String email = InputData.readString (MSG_EMAIL);
 		
-		while (validit‡Email(email) == false){
+		while (validit√†Email(email) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    email = null;
 			email = InputData.readString(MSG_EMAIL);	
@@ -152,7 +149,7 @@ public class CartellaSanitariaMain {
 		String codiceFiscale = InputData.readString (MSG_CODICE_FISCALE);
 		//codice sanitario
 		
-		//controllo validit‡ dati
+		//controllo validit√† dati
 		String gruppoSanguigno = InputData.readString (MSG_GRUPPO_SANGUIGNO);
 		
 		
@@ -190,7 +187,7 @@ public class CartellaSanitariaMain {
 	}
 	
 //////////////////////////////////////////////////////////////////////	 
-    public static boolean validit‡Nome (String nome){
+    public static boolean validit√†Nome (String nome){
     	/*for(int i = 0; i < nome.length(); i++)
     	{
     		  char carattere = nome.charAt(i);
@@ -204,25 +201,25 @@ public class CartellaSanitariaMain {
     	    return false;
     	}
 /////////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Cognome (String cognome){
-		return validit‡Nome(cognome);
+	public static boolean validit√†Cognome (String cognome){
+		return validit√†Nome(cognome);
 	}
 //////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Indirizzo (String indirizzo){
+	public static boolean validit√†Indirizzo (String indirizzo){
 		if (Pattern.matches(REGEX_INDIRIZZO, indirizzo))
     	    return true;
     	  else
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Telefono (String telefono){
+	public static boolean validit√†Telefono (String telefono){
 		if (Pattern.matches(REGEX_TELEFONO, telefono))
     	    return true;
     	  else
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡Email (String email){
+	public static boolean validit√†Email (String email){
 		if (Pattern.matches(REGEX_EMAIL, email))
     	    return true;
     	  else

@@ -7,20 +7,34 @@ package it.unibs.ing.fp.medicalrecords;
  *
  */
 public class Utility {
-	
+	/*
+	 * Paziente: Cognome Nome
+	 * Esami:
+	 * Data			Nome	 		Valore	
+	 * ...
+	 * ...
+	 * ...
+	 */
 	public void visualizzazioneSintetica() {
 		
 	}
 	
-	public void visualizzazioneDettagliata() {
-		
+	/*
+	 * SCHEDA PAZIENTE:
+	 * Nome: ...
+	 * Cognome: ...
+	 * ...
+	 */
+	public void schedaPaziente(Paziente paziente) {
+		paziente.toString();
 	}
 	
-	public void visualizzaPaziente() {
-		
-	}
-	
-	public void visualizzaEsame() {
-		
+	/*
+	 * SCHEDA ESAME:
+	 * Esame: ...
+	 * Raccomandazioni: ...
+	 */
+	public void schedaEsame(Esame esame) {
+		esame.toString();
 	}
 }
