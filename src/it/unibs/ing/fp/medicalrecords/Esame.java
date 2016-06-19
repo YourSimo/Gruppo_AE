@@ -1,7 +1,10 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import it.unibs.ing.fp.library.Formatting;
+
 /**
  * <h1> Class Esame </h1>
+ * <p>
  * @author Matteo Bellicini
  *
  */
@@ -31,6 +34,14 @@ public class Esame {
 		this.ora = ora;
 	}	
 	
+	//	data	nomeEsame
+	public String toSummary() {
+		StringBuffer result = new StringBuffer();
+		result.append(Formatting.inColumn(data, CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
+		result.append(Formatting.centered(nomeEsame, CartellaSanitariaMain.LARGHEZZA_ALTRE_COLONNE));
+		return result.toString();
+	}
+	
 	/*
 	 * SCHEDA ESAME
 	 * Esame: ...
@@ -42,4 +53,6 @@ public class Esame {
 		result.append(String.format(DESCRIZIONE, nomeEsame, raccomandazioni));	// 	Aggiungere gli atri parametri
 		return result.toString();
 	}
+
+	
 }

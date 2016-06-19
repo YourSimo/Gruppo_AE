@@ -50,6 +50,10 @@ public class Paziente {
 		this.gruppoSanguigno = gruppoSanguigno;
     }
     
+    public String nomeCognome() {
+		return cognome + " " + nome;
+	}
+    
     /*
 	 * SCHEDA PAZIENTE
 	 * Nome: ...
