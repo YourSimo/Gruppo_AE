@@ -12,7 +12,7 @@ import it.unibs.ing.fp.library.Formatting;
 public class CartellaSanitaria {
 	private static final String TITOLO = "CARTELLA SANITARIA";
 	private static final String DESCRIZIONE = "Paziente: %s%n, Esami: %n";
-	private static final String[] TITOLI = {"Data", "Nome", "Valore"};
+	private static final String[] TITOLI = {"N°", "Data", "Nome", "Valore"};
 	
 	
 	private Paziente paziente;
@@ -25,6 +25,7 @@ public class CartellaSanitaria {
 	
 	//	TO_STRING
 	
+	//	Data	Nome	Valore
 	private static String heading() {
 		StringBuffer result = new StringBuffer();
 		result.append("\n"+ Formatting.inColumn(TITOLI[0], CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
@@ -37,7 +38,7 @@ public class CartellaSanitaria {
 	/*
 	 * Paziente: Cognome Nome
 	 * Esami:
-	 * Data			Nome	 		Valore	
+	 * N°	Data			Nome	 		Valore	
 	 * ...
 	 * ...
 	 * ...
@@ -48,7 +49,7 @@ public class CartellaSanitaria {
 		result.append(String.format(DESCRIZIONE, paziente.nomeCognome()));
 		result.append(heading());
 		for(int i = 0; i < listaEsami.getSize(); i++) 
-			result.append("\n" + listaEsami.getExam(i).toSummary());
+			result.append("\n" + String.valueOf(i + 1) + ") " + listaEsami.getExam(i).toSummary());
 		return result.toString();
 	}
 }

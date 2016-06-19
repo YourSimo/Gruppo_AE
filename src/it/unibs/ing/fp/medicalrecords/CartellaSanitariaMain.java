@@ -20,8 +20,6 @@ public class CartellaSanitariaMain {
 	
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
-	
-	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
 		
@@ -56,10 +54,14 @@ public class CartellaSanitariaMain {
  		System.out.println(cartellaSanitaria.toString());
 		
 		/*
-		 * 	MENU ... Visualizzazione Dettagliata
-		 * 	1) Scheda Paziente
-		 * 	2) Scheda Esame
-		 * 	3) Esci
+		 * 	do {
+		 * 	switch
+		 * 	-	Utente 	[U]
+		 * 	-	Esame 	[E]
+		 * 		-	n° Esame:
+		 * 		-	tipo Esame:
+		 * 	-	Chiudi	[C]
+		 * 	} while();
 		 */
 	
 		System.out.println(MSG_SALVA);
@@ -68,10 +70,5 @@ public class CartellaSanitariaMain {
 	
 		System.out.println(MSG_OUTRO);
 	}
-	
-
-	
-	
-	
 }
 
