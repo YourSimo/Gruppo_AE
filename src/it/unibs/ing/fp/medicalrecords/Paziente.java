@@ -50,6 +50,12 @@ public class Paziente {
 		this.gruppoSanguigno = gruppoSanguigno;
     }
     
+    /*
+	 * SCHEDA PAZIENTE
+	 * Nome: ...
+	 * Cognome: ...
+	 * ...
+	 */
     public String toString() {
     	StringBuffer result = new StringBuffer();
     	result.append(TITOLO);

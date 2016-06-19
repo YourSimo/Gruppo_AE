@@ -31,6 +31,11 @@ public class Esame {
 		this.ora = ora;
 	}	
 	
+	/*
+	 * SCHEDA ESAME
+	 * Esame: ...
+	 * Raccomandazioni: ...
+	 */
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append(TITOLO);

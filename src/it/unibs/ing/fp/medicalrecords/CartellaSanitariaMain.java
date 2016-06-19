@@ -1,6 +1,5 @@
 package it.unibs.ing.fp.medicalrecords;
 
-
 import java.io.File;
 import java.util.regex.*;
 
@@ -40,8 +39,10 @@ public class CartellaSanitariaMain {
 	
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 	
+	private static final String TITOLO_CARTELLASANITARIA = "CARTELLA SANITARIA";
+	
 	public static void main(String[] args) {
-		printMsg(MSG_INTRO);
+		System.out.println(MSG_INTRO);
 		
 		File fileCartellaSanitaria = new File(NAME_FILE_TITLE);
 	  
@@ -70,29 +71,24 @@ public class CartellaSanitariaMain {
 			System.out.println(MSG_NO_FILE);
 			cartellaSanitaria = makeMedicalRecords();
 		}
-		/*
-		System.out.println("\n" + MSG_INTRO_PORTFOLIO);
- 		System.out.println(portafoglio.toString());
 		
-		int giorni = 0;
-		while (InputData.yesOrNo(MSG_PROCEDI)) {
-		 	giorni++;
-		 	elencoTitoli.setRandomValues();
-		 	System.out.println(String.format(MSG_INTRO_GIORNO, giorni));
-	 	 	System.out.println(portafoglio);
-		 
-		}
-		*/
+		System.out.println("\n" + TITOLO_CARTELLASANITARIA);
+ 		System.out.println(cartellaSanitaria.toString());
+		
+		/*
+		 * 	MENU ... Visualizzazione Dettagliata
+		 * 	1) Scheda Paziente
+		 * 	2) Scheda Esame
+		 * 	3) Esci
+		 */
+	
 		System.out.println(MSG_SALVA);
 		contenitore = new Contenitore(listaEsami, cartellaSanitaria);
 		OutputData.uploadSingleObject(fileCartellaSanitaria, contenitore);
 	
-		printMsg(MSG_OUTRO);
+		System.out.println(MSG_OUTRO);
 	}
 	
-	private static void printMsg(String msg) {
-		System.out.println(msg);
-	}
 
 	private static CartellaSanitaria makeMedicalRecords() {
 		return new CartellaSanitaria(makePatient(), makeExamList());
