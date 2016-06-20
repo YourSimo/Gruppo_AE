@@ -1,9 +1,6 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.File;
-import java.util.regex.*;
-
-import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
 
 public class CartellaSanitariaMain {
