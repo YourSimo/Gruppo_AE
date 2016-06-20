@@ -23,6 +23,14 @@ public class CartellaSanitaria {
 		this.listaEsami = listaEsami;
 	}
 	
+	public Paziente getPaziente() {
+		return paziente;
+	}
+	
+	public ListaEsami getListaEsami() {
+		return listaEsami;
+	}
+	
 	//	TO_STRING
 	
 	//	Data	Nome	Valore

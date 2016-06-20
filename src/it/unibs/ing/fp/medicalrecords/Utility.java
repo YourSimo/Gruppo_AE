@@ -110,7 +110,7 @@ public class Utility {
 		
 		
 		
-		return new Paziente();
+		return new Paziente(nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno);
 	}
 	
 	private static ListaEsami makeExamList() {

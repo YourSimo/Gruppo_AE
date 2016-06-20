@@ -1,6 +1,8 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.File;
+
+import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
 
 public class CartellaSanitariaMain {
@@ -16,6 +18,12 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NO_FILE = "NON POSSO CARICARE DA FILE: ESEGUO CREAZIONE DA ZERO";
 	
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
+	
+	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], Esame [E] o Uscire [U]";
+	private static final String VALID_CHAR = "PEU";
+	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
+	private static final String MSG_NEXT_EXAM = null;
+	private static final String VALID_CHAR_EXAM = null;
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -49,10 +57,31 @@ public class CartellaSanitariaMain {
 		}
 		
  		System.out.println(cartellaSanitaria.toString());
-		
+ 		
+		boolean finito = false;
+ 		do {
+ 			char scelta = InputData.readCharLimitedSensitive(MSG_NEXT, VALID_CHAR);
+ 			switch(scelta) {
+ 				case 'P' :
+ 					cartellaSanitaria.getPaziente().toString();
+ 					break;
+ 				case 'E' :
+ 					//	Secondo switch/if e else: n° Esame o tipoEsame
+ 					break;
+ 				case 'U' :
+ 					finito = true;
+ 					break;
+ 				default :
+ 					System.out.println(CHOISE_ERR);
+ 			}
+ 			
+ 		} while(!finito);
 		/*
 		 * 	do {
-		 * 	switch
+		 * 	switch() {
+		 * 		case 'U' :
+		 * 		break;
+		 * 		case 'E' :
 		 * 	-	Utente 	[U]
 		 * 	-	Esame 	[E]
 		 * 		-	n° Esame:
@@ -67,5 +96,6 @@ public class CartellaSanitariaMain {
 	
 		System.out.println(MSG_OUTRO);
 	}
+	
 }
 
