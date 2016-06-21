@@ -1,8 +1,9 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import java.io.Serializable;
 import java.util.Vector;
 
-public class ListaEsami {
+public class ListaEsami implements Serializable {
 	private Vector <Esame> listaEsami;
 	
 	public ListaEsami(){

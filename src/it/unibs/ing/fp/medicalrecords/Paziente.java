@@ -1,14 +1,18 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import java.io.Serializable;
+
+import it.unibs.ing.fp.library.Formatting;
+
 /**
  * <h1> Class Paziente </h1>
  * <p>
  * @author Federico Avino
  *
  */
-public class Paziente {
+public class Paziente implements Serializable {
 	private static final String TITOLO = "SCHEDA PAZIENTE";
-	private static final String DESCRIZIONE = "Nome: %s%n, Cognome: %s%n, ...";		//	Aggiornare la Stringa
+	private static final String DESCRIZIONE = "Nome: %s%nCognome: %s%n...%n";		//	Aggiornare la Stringa
 	
 	private String nome;
 	private String cognome;
@@ -62,8 +66,9 @@ public class Paziente {
 	 */
     public String toString() {
     	StringBuffer result = new StringBuffer();
-    	result.append(TITOLO);
+    	result.append(Formatting.framing(TITOLO));
     	result.append(String.format(DESCRIZIONE, nome, cognome));	//	Aggiungere gli atri parametri
+    	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
     }
 }

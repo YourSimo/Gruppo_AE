@@ -54,6 +54,7 @@ public class Formatting {
 		for(int i = 0; i < s.length(); i++) result.append(FRAME);
 		result.append(HEAD + s + HEAD);
 		for(int i = 0; i < s.length(); i++) result.append(FRAME);
+		result.append(HEAD);
 		return result.toString();
 	}
 

@@ -7,7 +7,7 @@ import it.unibs.ing.fp.library.OutputData;
 
 public class CartellaSanitariaMain {
 	public static final int LARGHEZZA_PRIMA_COLONNA = 8;
-	public static final int LARGHEZZA_ALTRE_COLONNE = 0;
+	public static final int LARGHEZZA_ALTRE_COLONNE = 15;
 	
 	private static final String MSG_INTRO = "BENVENUTO NEL PROGRAMMA GESTIONE CARTELLA SANITARIA";
 	private static final String MSG_OUTRO = "A PRESTO";
@@ -30,26 +30,17 @@ public class CartellaSanitariaMain {
 		
 		File fileCartellaSanitaria = new File(NAME_FILE_TITLE);
 	  
-		/*
-		 * Non è neccessaria la classe Contenitore dato che CartellaSanitaria è composta da 
-		 * Paziente e ListaEsami
-		 */
-		
-		ListaEsami listaEsami = null;
 		CartellaSanitaria cartellaSanitaria = null;
-		Contenitore contenitore = null;
 	
 		boolean caricamentoRiuscito = false;
 	
 		if(fileCartellaSanitaria.exists()) {
 			try {
-				contenitore = (Contenitore)OutputData.loadSingleObject(fileCartellaSanitaria);
-				listaEsami = contenitore.getListaEsami();
-				cartellaSanitaria = contenitore.getCartellaSanitaria();
+				cartellaSanitaria = (CartellaSanitaria)OutputData.loadSingleObject(fileCartellaSanitaria);
 			} catch (ClassCastException e) {
 				System.out.println(MSG_NO_CAST);
 			} finally {
-				if ((listaEsami != null) && (cartellaSanitaria != null)) {
+				if (cartellaSanitaria != null) {
 					System.out.println(MSG_OK_FILE);
 					caricamentoRiuscito = true;
 				}
@@ -58,7 +49,13 @@ public class CartellaSanitariaMain {
 	
 		if (!caricamentoRiuscito) {
 			System.out.println(MSG_NO_FILE);
-			cartellaSanitaria = Utility.makeMedicalRecords();
+			//	cartellaSanitaria = Utility.makeMedicalRecords();
+			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
+			
+			ListaEsami listaEsami = new ListaEsami();
+			listaEsami.addExam(new Esame("Glicemia", "Raccom.", "Brescia", "24/06/2016", "8:30"));
+			
+			cartellaSanitaria = new CartellaSanitaria(paziente, listaEsami);
 		}
 		
  		System.out.println(cartellaSanitaria.toString());
@@ -68,7 +65,7 @@ public class CartellaSanitariaMain {
  			char scelta = InputData.readCharLimitedSensitive(MSG_NEXT, VALID_CHAR);
  			switch(scelta) {
  				case 'P' :
- 					cartellaSanitaria.getPaziente().toString();
+ 					System.out.println(cartellaSanitaria.getPaziente().toString());
  					break;
  				case 'E' :
  					//	Secondo switch/if e else: n° Esame o tipoEsame
@@ -96,8 +93,7 @@ public class CartellaSanitariaMain {
 		 */
 	
 		System.out.println(MSG_SALVA);
-		contenitore = new Contenitore(listaEsami, cartellaSanitaria);
-		OutputData.uploadSingleObject(fileCartellaSanitaria, contenitore);
+		OutputData.uploadSingleObject(fileCartellaSanitaria, cartellaSanitaria);
 	
 		System.out.println(MSG_OUTRO);
 	}

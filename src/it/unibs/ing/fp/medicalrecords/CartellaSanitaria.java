@@ -1,5 +1,7 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import java.io.Serializable;
+
 import it.unibs.ing.fp.library.Formatting;
 
 /**
@@ -9,10 +11,10 @@ import it.unibs.ing.fp.library.Formatting;
  * @author Simone Cavicchioli
  *
  */
-public class CartellaSanitaria {
+public class CartellaSanitaria implements Serializable {
 	private static final String TITOLO = "CARTELLA SANITARIA";
-	private static final String DESCRIZIONE = "Paziente: %s%n, Esami: %n";
-	private static final String[] TITOLI = {"N°", "Data", "Nome", "Valore"};
+	private static final String DESCRIZIONE = "PAZIENTE: %s%nESAMI:";
+	private static final String[] TITOLI = {"N°", "DATA", "NOME", "VALORE"};
 	
 	
 	private Paziente paziente;
@@ -53,11 +55,12 @@ public class CartellaSanitaria {
 	 */
 	public String toString() {
 		StringBuffer result = new StringBuffer();
-		result.append(TITOLO);
+		result.append(Formatting.framing(TITOLO));
 		result.append(String.format(DESCRIZIONE, paziente.nomeCognome()));
 		result.append(heading());
 		for(int i = 0; i < listaEsami.getSize(); i++) 
 			result.append("\n" + String.valueOf(i + 1) + ") " + listaEsami.getExam(i).toSummary());
+		result.append("\n" + Formatting.cloneChar('-', TITOLO.length()));
 		return result.toString();
 	}
 }

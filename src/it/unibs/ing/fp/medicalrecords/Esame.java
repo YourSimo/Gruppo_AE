@@ -1,5 +1,7 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import java.io.Serializable;
+
 import it.unibs.ing.fp.library.Formatting;
 
 /**
@@ -8,7 +10,7 @@ import it.unibs.ing.fp.library.Formatting;
  * @author Matteo Bellicini
  *
  */
-public class Esame {
+public class Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME";
 	private static final String DESCRIZIONE = "Esame: %s%n, Raccomandazioni: %s%n, ...";	//	Aggiornare la Stringa
 	
@@ -37,7 +39,7 @@ public class Esame {
 	//	data	nomeEsame
 	public String toSummary() {
 		StringBuffer result = new StringBuffer();
-		result.append(Formatting.inColumn(data, CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
+		result.append(Formatting.indentation(data, CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
 		result.append(Formatting.centered(nomeEsame, CartellaSanitariaMain.LARGHEZZA_ALTRE_COLONNE));
 		return result.toString();
 	}
