@@ -30,6 +30,11 @@ public class CartellaSanitariaMain {
 		
 		File fileCartellaSanitaria = new File(NAME_FILE_TITLE);
 	  
+		/*
+		 * Non è neccessaria la classe Contenitore dato che CartellaSanitaria è composta da 
+		 * Paziente e ListaEsami
+		 */
+		
 		ListaEsami listaEsami = null;
 		CartellaSanitaria cartellaSanitaria = null;
 		Contenitore contenitore = null;
