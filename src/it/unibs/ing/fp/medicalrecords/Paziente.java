@@ -66,7 +66,7 @@ public class Paziente implements Serializable {
     }
     
     public String nomeCognome() {
-		return cognome + " " + nome;
+		return nome + " " + cognome;
 	}
     
 
@@ -83,6 +83,4 @@ public class Paziente implements Serializable {
     	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
     }
-
-
 }
