@@ -40,6 +40,25 @@ public class CartellaSanitariaMain {
 	
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 	
+	private final static String GENERE_ACCETTABILE_1 = "maschio";
+	private final static String GENERE_ACCETTABILE_2 = "m";
+	private final static String GENERE_ACCETTABILE_3 = "uomo";
+	private final static String GENERE_ACCETTABILE_4 = "femmina";
+	private final static String GENERE_ACCETTABILE_5 = "f";
+	private final static String GENERE_ACCETTABILE_6 = "donna";
+	
+	private final static String SANGUE_ACCETTABILE_1 = "Apositivo";
+	private final static String SANGUE_ACCETTABILE_2 = "Bpositivo";
+	private final static String SANGUE_ACCETTABILE_3 = "ABpositivo";
+	private final static String SANGUE_ACCETTABILE_4 = "0positivo";
+	private final static String SANGUE_ACCETTABILE_5 = "Anegativo";
+	private final static String SANGUE_ACCETTABILE_6 = "Bnegativo";
+	private final static String SANGUE_ACCETTABILE_7 = "ABnegativo";
+	private final static String SANGUE_ACCETTABILE_8 = "0negativo";
+	private final static String SANGUE_ACCETTABILE_9 = "";
+	private final static String SANGUE_ACCETTABILE_10 = "";
+	
+	
 	
 	
 	
@@ -147,16 +166,46 @@ public class CartellaSanitariaMain {
 		};
 		//********************************************************
 		String dataNascita = InputData.readString (MSG_DATA_NASCITA);
+		
+		while (validit‡DataNascita(dataNascita) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    dataNascita = null;
+			dataNascita = InputData.readString(MSG_DATA_NASCITA);	
+		};
+		//**********************************************************
 		String luogoNascita = InputData.readString (MSG_LUOGO_NASCITA);
+
+		while (validit‡LuogoNascita(luogoNascita) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    luogoNascita = null;
+			luogoNascita = InputData.readString(MSG_LUOGO_NASCITA);	
+		};
+		//**********************************************************
 		String genere = InputData.readString (MSG_GENERE);
+
+		while (validit‡Genere(genere) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    genere = null;
+			genere = InputData.readString(MSG_LUOGO_NASCITA);	
+		};
+		//**********************************************************
 		String codiceFiscale = InputData.readString (MSG_CODICE_FISCALE);
-		//codice sanitario
+
+		while (validit‡CodiceFiscale(codiceFiscale) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    codiceFiscale = null;
+			codiceFiscale = InputData.readString(MSG_CODICE_FISCALE	);	
+		};
+		//**********************************************************
+		
+		
+		
 		
 		//controllo validit‡ dati
 		String gruppoSanguigno = InputData.readString (MSG_GRUPPO_SANGUIGNO);
 		
 		
-		//manca regex gruppo sanguigno
+		
 		
 		
 		
@@ -221,7 +270,42 @@ public class CartellaSanitariaMain {
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////
-	
-	
+	public static boolean validit‡DataNascita (String dataNascita){
+		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita))
+    	    return true;
+    	  else
+    	    return false;
+	}
+/////////////////////////////////////////////////////////////////////////////	
+	public static boolean validit‡LuogoNascita (String luogoNascita){
+		if (Pattern.matches(REGEX_ALFABETO, luogoNascita))
+    	    return true;
+    	  else
+    	    return false;
+	}
+/////////////////////////////////////////////////////////////////////////////
+	public static boolean validit‡Genere (String genere){
+		if (Pattern.matches(REGEX_ALFABETO, genere)){
+			if(genere.equalsIgnoreCase(GENERE_ACCETTABILE_1)||genere.equalsIgnoreCase(GENERE_ACCETTABILE_2)||genere.equalsIgnoreCase(GENERE_ACCETTABILE_3)||genere.equalsIgnoreCase(GENERE_ACCETTABILE_4)||genere.equalsIgnoreCase(GENERE_ACCETTABILE_5)||genere.equalsIgnoreCase(GENERE_ACCETTABILE_6))
+				return true;
+		}
+    	  else
+    	    return false;
+	}
+/////////////////////////////////////////////////////////////////////////////
+	public static boolean validit‡CodiceFiscale (String codiceFiscale){
+		if (Pattern.matches(REGEX_CODICE_FISCALE, codiceFiscale))
+    	    return true;
+    	  else
+    	    return false;
+	}
+/////////////////////////////////////////////////////////////////////////////
+    public static boolean validit‡GruppoSanguigno (String gruppoSanguigno){
+    	String strOut = gruppoSanguigno.replaceAll ("\\s+$", "");
+    	
+    	
+    }
+
 }
+
 

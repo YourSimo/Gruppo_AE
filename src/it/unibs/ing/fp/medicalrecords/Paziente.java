@@ -37,12 +37,13 @@ public class Paziente {
     
     
     
+    
+    
    
     	
     
     
-    //necessario importare la classe InputDati, da mettere in MyLib??? è presa 
-    //da una esercitazione 
+   
     
     
 
