@@ -121,7 +121,7 @@ public class Utility {
 		//************************************************
 		String nome = InputData.readString(MSG_NOME);
 		//si continua a richiedere l'inserimento fino a quando i dati non sono corretti
-		while (validit‡Nome(nome) == false){
+		while (convalidaNome(nome) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    nome = null;
 			nome = InputData.readString(MSG_NOME);	
@@ -129,7 +129,7 @@ public class Utility {
 		//**************************************************
 		String cognome = InputData.readString(MSG_COGNOME);
 		
-		while (validit‡Cognome(cognome) == false){
+		while (convalidaCognome(cognome) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    cognome = null;
 			cognome = InputData.readString(MSG_COGNOME);	
@@ -137,7 +137,7 @@ public class Utility {
 		//**************************************************
 		String indirizzo = InputData.readString(MSG_INDIRIZZO);
 		
-		while (validit‡Indirizzo(indirizzo) == false){
+		while (convalidaIndirizzo(indirizzo) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_INDIRIZZO);
 		    indirizzo = null;
 			indirizzo = InputData.readString(MSG_INDIRIZZO);	
@@ -145,7 +145,7 @@ public class Utility {
 		//***************************************************
 		String telefono = InputData.readString (MSG_TELEFONO);
 
-		while (validit‡Telefono(telefono) == false){
+		while (convalidaTelefono(telefono) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
 		    telefono = null;
 			telefono = InputData.readString(MSG_TELEFONO);	
@@ -153,7 +153,7 @@ public class Utility {
 		//******************************************************
 		String email = InputData.readString (MSG_EMAIL);
 		
-		while (validit‡Email(email) == false){
+		while (convalidaEmail(email) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_EMAIL);
 		    email = null;
 			email = InputData.readString(MSG_EMAIL);	
@@ -162,7 +162,7 @@ public class Utility {
 		String dataNascita = InputData.readString (MSG_DATA_NASCITA);
 		
 
-		while (validit‡DataNascita(dataNascita) == false){
+		while (convalidaDataNascita(dataNascita) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_DATA_NASCITA);
 		    dataNascita = null;
 			dataNascita = InputData.readString(MSG_DATA_NASCITA);	
@@ -171,7 +171,7 @@ public class Utility {
 		String luogoNascita = InputData.readString (MSG_LUOGO_NASCITA);
 		
 
-		while (validit‡LuogoNascita(luogoNascita) == false){
+		while (convalidaLuogoNascita(luogoNascita) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    luogoNascita = null;
 			luogoNascita = InputData.readString(MSG_LUOGO_NASCITA);	
@@ -180,7 +180,7 @@ public class Utility {
 		String genere = InputData.readString (MSG_GENERE);
 		
 
-		while (validit‡Genere(genere) == false){
+		while (convalidaGenere(genere) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    genere = null;
 			genere = InputData.readString(MSG_GENERE);	
@@ -189,7 +189,7 @@ public class Utility {
 		String codiceFiscale = InputData.readString (MSG_CODICE_FISCALE);
 		
 
-		while (validit‡CodiceFiscale(codiceFiscale) == false){
+		while (convalidaCodiceFiscale(codiceFiscale) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO_CODICE_FISCALE);
 		    codiceFiscale = null;
 			codiceFiscale = InputData.readString(MSG_CODICE_FISCALE	);	
@@ -198,7 +198,7 @@ public class Utility {
 		String gruppoSanguigno = InputData.readString (MSG_GRUPPO_SANGUIGNO);
 		
 
-		while (validit‡CodiceFiscale(codiceFiscale) == false){
+		while (convalidaCodiceFiscale(codiceFiscale) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    codiceFiscale = null;
 			codiceFiscale = InputData.readString(MSG_GRUPPO_SANGUIGNO);	
@@ -216,7 +216,7 @@ public class Utility {
 		//verifica esame
 		String esame = InputData.readString(MSG_ESAME);
 		
-		while (validit‡Esame(esame) == false){
+		while (convalidaEsame(esame) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    esame = null;
 			esame = InputData.readString(MSG_ESAME);	
@@ -225,7 +225,7 @@ public class Utility {
 		
 		String data = InputData.readString(MSG_DATA);
 		
-		while (validit‡Data(data) == false){
+		while (convalidaData(data) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    data = null;
 			data = InputData.readString(MSG_DATA);	
@@ -234,7 +234,7 @@ public class Utility {
 		
 		String luogo = InputData.readString(MSG_LUOGO);
 		
-		while (validit‡Luogo(luogo) == false){
+		while (convalidaLuogo(luogo) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    luogo = null;
 			luogo = InputData.readString(MSG_LUOGO);	
@@ -243,7 +243,7 @@ public class Utility {
 		
 		String ora = InputData.readString (MSG_ORA);
 
-		while (validit‡Ora(ora) == false){
+		while (convalidaOra(ora) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    ora = null;
 			ora = InputData.readString(MSG_ORA);	
@@ -252,14 +252,14 @@ public class Utility {
 		
 		String esito = InputData.readString (MSG_ESITO);
 		
-		while (validit‡Esito(esito) == false){
+		while (convalidaEsito(esito) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    esito = null;
 			esito = InputData.readString(MSG_ESITO);	
 		};
 String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 		
-		while (validit‡Raccomandazioni(raccomandazioni) == false){
+		while (convalidaRaccomandazioni(raccomandazioni) == false){
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    raccomandazioni = null;
 			raccomandazioni = InputData.readString(MSG_RACCOMANDAZIONI);	
@@ -276,42 +276,42 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 	//validit‡ metodi
 
 	
-	private static boolean validit‡Raccomandazioni(String raccomandazioni) {
+	private static boolean convalidaRaccomandazioni(String raccomandazioni) {
 	if (Pattern.matches(REGEX_ALFABETO, raccomandazioni))
 	    return true;
 	  else
 	    return false;
 	}
 	
-	private static boolean validit‡Esito(String esito) {
+	private static boolean convalidaEsito(String esito) {
 	if (Pattern.matches(REGEX_ALFABETO, esito))
 	    return true;
 	  else
 	    return false;
 	}
 	
-	private static boolean validit‡Ora(String ora) {
+	private static boolean convalidaOra(String ora) {
 	if (Pattern.matches(REGEX_ORA, ora))
 	    return true;
 	  else
 	    return false;
 	}
 	
-	private static boolean validit‡Luogo(String luogo) {
+	private static boolean convalidaLuogo(String luogo) {
 	if (Pattern.matches(REGEX_ALFABETO, luogo))
 	    return true;
 	  else
 	    return false;
 	}
 	
-	private static boolean validit‡Data(String data) {
+	private static boolean convalidaData(String data) {
 	if (Pattern.matches(REGEX_DATA, data))
 	    return true;
 	  else
 	    return false;
 	}
 	
-	private static boolean validit‡Esame(String esame) {
+	private static boolean convalidaEsame(String esame) {
 	if (Pattern.matches(REGEX_ALFABETO, esame))
 	    return true;
 	  else
@@ -319,32 +319,32 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 		
 	}
 	//////////////////////////////////////////////////////////////////////	 
-    public static boolean validit‡Nome (String nome){
+    public static boolean convalidaNome (String nome){
     	 if (Pattern.matches(REGEX_ALFABETO, nome))
     	    return true;
     	  else
     	    return false;
     	}
 /////////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Cognome (String cognome){
-		return validit‡Nome(cognome);
+	public static boolean convalidaCognome (String cognome){
+		return convalidaNome(cognome);
 	}
 //////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Indirizzo (String indirizzo){
+	public static boolean convalidaIndirizzo (String indirizzo){
 		if (Pattern.matches(REGEX_INDIRIZZO, indirizzo))
     	    return true;
     	  else
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡Telefono (String telefono){
+	public static boolean convalidaTelefono (String telefono){
 		if (Pattern.matches(REGEX_TELEFONO, telefono))
     	    return true;
     	  else
     	    return false;
 	}
 ////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡Email (String email){
+	public static boolean convalidaEmail (String email){
 		if (Pattern.matches(REGEX_EMAIL, email))
     	    return true;
     	  else
@@ -352,35 +352,35 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 	}
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡DataNascita (String dataNascita){
+	public static boolean convalida (String dataNascita){
 		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita))
 			return true;
 		else
 			return false;
 	}
 /////////////////////////////////////////////////////////////////////////////	
-	public static boolean validit‡LuogoNascita (String luogoNascita){
+	public static boolean convalidaLuogoNascita (String luogoNascita){
 		if (Pattern.matches(REGEX_ALFABETO, luogoNascita))
 			return true;
 		else
 			return false;
 	}
 /////////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡Genere (String genere){
+	public static boolean convalidaGenere (String genere){
 		for ( int i = 0; i <GENERE_ACCETTABILE.length; i++)
 			if (genere.equalsIgnoreCase(GENERE_ACCETTABILE[i])) return true;	
 		
 		return false;
 	}
 /////////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡CodiceFiscale (String codiceFiscale){
+	public static boolean convalidaCodiceFiscale (String codiceFiscale){
 		if (Pattern.matches(REGEX_CODICE_FISCALE, codiceFiscale))
 			return true;
 		else
 			return false;
 	}
 /////////////////////////////////////////////////////////////////////////////
-	public static boolean validit‡GruppoSanguigno (String gruppoSanguigno){
+	public static boolean convalidaGruppoSanguigno (String gruppoSanguigno){
 		//si crea una nuova stringa senza gli spazi
 		String strOut = gruppoSanguigno.replaceAll ("\\s+$", "");
 		for ( int i = 0; i <GRUPPO_SANGUIGNO_ACCETTABILE.length; i++)
