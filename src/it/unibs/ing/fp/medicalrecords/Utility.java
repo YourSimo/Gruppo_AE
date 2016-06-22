@@ -1,5 +1,6 @@
 package it.unibs.ing.fp.medicalrecords;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.regex.Pattern;
 
@@ -13,7 +14,7 @@ import it.unibs.ing.fp.library.InputData;
  * @author Simone Cavicchioli
  *
  */
-public class Utility {
+public class Utility implements Serializable {
 	//messaggi per richiedere inserimento dati
 	private final static String MSG_INTRO_INSERIMENTO = "Benvenuto. Di seguito potrà inserire i dati personali per la sua cartella medica; tutti i campi sono obbligatori";
 	private final static String MSG_NOME = "Inserisca il proprio nome:";
