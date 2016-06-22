@@ -20,7 +20,7 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	//verifica inserimento valore valido
 
-<<<<<<< HEAD
+
 	
 	public static boolean valoreValido (int valore, int min,int max  ){
 		if (valore<min && valore>max) 
@@ -31,17 +31,5 @@ public class EsameMisurabile extends Esame implements Serializable {
 		 
 		
 
-	public static boolean valoreValido (int valore, int min, int max){
-=======
-	public boolean valoreValido(int min, int max){
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-		if (valore < min && valore > max) return false;
-		return true;	
-<<<<<<< HEAD
-
-=======
-	}
 	
-	// MANCA IL TO_STRING
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 }
