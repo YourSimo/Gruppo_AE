@@ -19,12 +19,12 @@ public class Esame implements Serializable {
 											+ "Ora: %s%n,"
 											+ "Esito: %s%n,";	
 	
-	private String esame;
-	private String raccomandazioni;
-	private String luogo;
-	private String data;
-	private String ora;
-	private String esito;	
+	protected String esame;
+	protected String raccomandazioni;
+	protected String luogo;
+	protected String data;
+	protected String ora;
+	protected String esito;	
 	/**
 	 * Costruttore.	
 	 * @param nomeEsame
