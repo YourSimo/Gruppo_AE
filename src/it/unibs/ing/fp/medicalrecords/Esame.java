@@ -25,6 +25,7 @@ public class Esame implements Serializable {
 	protected String data;
 	protected String ora;
 	protected String esito;	
+	
 	/**
 	 * Costruttore.	
 	 * @param nomeEsame
@@ -33,9 +34,6 @@ public class Esame implements Serializable {
 	 * @param data
 	 * @param ora
 	 */
-
-	
-	
 	public Esame(String esame, String luogo, String data, String ora, String raccomandazioni, String esito) {
 		this.esame = esame;
 		this.raccomandazioni = raccomandazioni;
@@ -44,7 +42,6 @@ public class Esame implements Serializable {
 		this.ora = ora;
 		this.esito=esito;
 	}
-
 
 	//	data	nomeEsame
 	public String toSummary() {
@@ -65,6 +62,4 @@ public class Esame implements Serializable {
 		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito));
 		return result.toString();
 	}
-
-	
 }
