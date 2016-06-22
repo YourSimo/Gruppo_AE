@@ -168,6 +168,8 @@ public class Utility {
 		return new Paziente(nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno);
 	}
 	
+	
+////////////////////////////////////////////////////////////////////////
 	private static ListaEsami makeExamList() {
 		
 		
@@ -182,13 +184,6 @@ public class Utility {
 	
 //////////////////////////////////////////////////////////////////////	 
     public static boolean validit‡Nome (String nome){
-    	/*for(int i = 0; i < nome.length(); i++)
-    	{
-    		  char carattere = nome.charAt(i);
-    		  if(carattere<65 || ((carattere>90) && (carattere<97) || carattere>122))return false;
-    	
-    	}
-    	return true;*/
     	 if (Pattern.matches(REGEX_ALFABETO, nome))
     	    return true;
     	  else

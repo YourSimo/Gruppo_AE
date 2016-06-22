@@ -16,7 +16,13 @@ public class Paziente implements Serializable {
 											+ "Cognome: %s%n"
 											+ "Indirizzo:%s%n"
 											+ "Telefono:%s%n"
-											+ "Email:%s%n";
+											+ "Email:%s%n"
+											+ "Data di nascita:%s%n"
+											+ "Luogo di nascita:%s%n"
+											+ "Genere:%s%n"
+											+ "Codice Fiscale:%s%n"
+											+ "Codice Sanitario:%s%n"
+											+ "Gruppo Sanguigno:%s%n";
 											
 	
 	private String nome;
@@ -73,7 +79,7 @@ public class Paziente implements Serializable {
     public String toString() {
     	StringBuffer result = new StringBuffer();
     	result.append(Formatting.framing(TITOLO));
-    	result.append(String.format(DESCRIZIONE, nome, cognome));	//	Aggiungere gli atri parametri
+    	result.append(String.format(DESCRIZIONE, nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno));
     	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
     }
