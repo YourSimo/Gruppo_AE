@@ -12,6 +12,7 @@ import it.unibs.ing.fp.library.InputData;
  *
  */
 public class Utility {
+	//messaggi per richiedere inserimento dati
 	private final static String MSG_INTRO_INSERIMENTO = "Benvenuto. Di seguito potr√† inserire i dati personali per la sua cartella medica; tutti i campi sono obbligatori";
 	private final static String MSG_NOME = "Inserisca il proprio nome:";
 	private final static String MSG_COGNOME = "Inserisca il proprio cognome:";
@@ -24,23 +25,41 @@ public class Utility {
 	private final static String MSG_CODICE_FISCALE = "Inserisca il proprio codice fiscale";
 	private final static String MSG_GRUPPO_SANGUIGNO = "Inserisca il proprio gruppo sanguigno";
     
+	private final static String MSG_ERRORE_INSERIMENTO_ALFABETO= "Errore nell'inserimento dati. La stringa inserita deve contenere solo lettere. Ritenti.";
+	private final static String MSG_ERRORE_INSERIMENTO_INDIRIZZO = "Errore nell'inserimento dati. I dati inseriti devono essere nel formato aaaaaa aaaaaa,222. Ritenti";
+	private final static String MSG_ERRORE_INSERIMENTO_TELEFONO= "Errore nell'inserimento dati. La stringa inserita deve contenere solo numeri. Ritenti";
+	private final static String MSG_ERRORE_INSERIMENTO_EMAIL= "Errore nell'inserimento dati. La stringa deve essere nel formato aaaaaa.aaaaaa@aaaaa.aaa. Ritenti";
+	private final static String MSG_ERRORE_INSERIMENTO_DATA_NASCITA= "Errore nell'inserimento dati. La stringa inserita deve essere nel formato gg/mm/aaaa. Ritenti";
+	private final static String MSG_ERRORE_INSERIMENTO_CODICE_FISCALE= "Errore nell'inserimento dati. La stringa inserita deve rispettare la composizione del codice fiscale. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
+	/*regular expressions, permettono di creare una sringa formata da 
+	 * caratteri speciali che il computer interpreta appositamente. 
+	 * Sono usate per verificare se delle stringhe rispettano un determinato
+	 * formato specificato appunto grazie alla stringa formata dalle regex
+	 * */
+	//la regex dell'alfabeto verifica che la stringa si componga solo di lettere
 	private final static String REGEX_ALFABETO = "^[a-zA-Z]+$";
+	//la stringa dell'indirizzo deve essere fatta da caratteri spazio caratteri virgola numeri
 	private final static String REGEX_INDIRIZZO ="^[a-zA-Z]+[\t\n\r\f][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
+	//solo numeri
 	private final static String REGEX_TELEFONO = "^[0-9]+$";
+	//lettere o numeri chiocciola stringa o numeri punto e da due a 4 caratteri
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
+	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
 	//la regex del luogo di nascita Ë alfabeto
+	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 	
+	//array di stringhe con cui confrontare il genere
 	private final static String GENERE_ACCETTABILE [] = {"maschio",
 														 "m",
 														 "uomo",
 														 "femmina",
 														 "f",
 														 "donna"};
-	
+	//array di stringhe con cui conforntare il gruppo sanguigno
 	private final static String GRUPPO_SANGUIGNO_ACCETTABILE[] = {"Apositivo",
 																  "Bpositivo",
 																  "ABpositivo",
@@ -65,23 +84,27 @@ public class Utility {
 																  "B-",
 																  "AB-",
 																  "0-"};
+	//arbitrria lunghezza stabilita x la stringa del codice sanitario
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;
 	
 	
-	
+///////////////////////////////////////////////////////////////////	
 	public static CartellaSanitaria makeMedicalRecords() {
 		return new CartellaSanitaria(makePatient(), makeExamList());
 	}
 //////////////////////////////////////////////////////////////////	
+	/*classe che provvede alla creazione di un oggetto Paziente, 
+	 * chiede all'utente l'inserimento dati
+	 */
 	public static Paziente makePatient() {
 		
 
 		System.out.println(MSG_INTRO_INSERIMENTO);
 		//************************************************
 		String nome = InputData.readString(MSG_NOME);
-		
+		//si continua a richiedere l'inserimento fino a quando i dati non sono corretti
 		while (validit‡Nome(nome) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    nome = null;
 			nome = InputData.readString(MSG_NOME);	
 		};
@@ -89,7 +112,7 @@ public class Utility {
 		String cognome = InputData.readString(MSG_COGNOME);
 		
 		while (validit‡Cognome(cognome) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    cognome = null;
 			cognome = InputData.readString(MSG_COGNOME);	
 		};
@@ -97,7 +120,7 @@ public class Utility {
 		String indirizzo = InputData.readString(MSG_INDIRIZZO);
 		
 		while (validit‡Indirizzo(indirizzo) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_INDIRIZZO);
 		    indirizzo = null;
 			indirizzo = InputData.readString(MSG_INDIRIZZO);	
 		};
@@ -105,7 +128,7 @@ public class Utility {
 		String telefono = InputData.readString (MSG_TELEFONO);
 
 		while (validit‡Telefono(telefono) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
 		    telefono = null;
 			telefono = InputData.readString(MSG_TELEFONO);	
 		};
@@ -113,7 +136,7 @@ public class Utility {
 		String email = InputData.readString (MSG_EMAIL);
 		
 		while (validit‡Email(email) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_EMAIL);
 		    email = null;
 			email = InputData.readString(MSG_EMAIL);	
 		};
@@ -122,7 +145,7 @@ public class Utility {
 		
 
 		while (validit‡DataNascita(dataNascita) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_DATA_NASCITA);
 		    dataNascita = null;
 			dataNascita = InputData.readString(MSG_DATA_NASCITA);	
 		};
@@ -131,7 +154,7 @@ public class Utility {
 		
 
 		while (validit‡LuogoNascita(luogoNascita) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_ALFABETO);
 		    luogoNascita = null;
 			luogoNascita = InputData.readString(MSG_LUOGO_NASCITA);	
 		};
@@ -149,7 +172,7 @@ public class Utility {
 		
 
 		while (validit‡CodiceFiscale(codiceFiscale) == false){
-			System.out.println(MSG_ERRORE_INSERIMENTO);
+			System.out.println(MSG_ERRORE_INSERIMENTO_CODICE_FISCALE);
 		    codiceFiscale = null;
 			codiceFiscale = InputData.readString(MSG_CODICE_FISCALE	);	
 		};
@@ -164,7 +187,7 @@ public class Utility {
 		};
 		
 		String codiceSanitario = generaCodiceSanitario();
-	
+	    //con i dati inseriti si crea un oggetto Paziente
 		return new Paziente(nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno);
 	}
 	
@@ -245,6 +268,7 @@ public class Utility {
 	}
 /////////////////////////////////////////////////////////////////////////////
 	public static boolean validit‡GruppoSanguigno (String gruppoSanguigno){
+		//si crea una nuova stringa senza gli spazi
 		String strOut = gruppoSanguigno.replaceAll ("\\s+$", "");
 		for ( int i = 0; i <GRUPPO_SANGUIGNO_ACCETTABILE.length; i++)
 			if (strOut.equalsIgnoreCase(GRUPPO_SANGUIGNO_ACCETTABILE[i])) return true;
@@ -257,7 +281,7 @@ public class Utility {
 		
 	}
 	
-	//metodo preso da internet
+	//genera stringa random formata da lettere e numeri e lunga 10 caratteri
 	public static String randomString (int length) {
 		//creazione oggetto classe random
 		Random rnd = new Random ();
