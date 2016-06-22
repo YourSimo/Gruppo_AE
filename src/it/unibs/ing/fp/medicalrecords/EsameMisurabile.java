@@ -8,10 +8,13 @@ public class EsameMisurabile extends Esame implements Serializable {
 	public final static int MAX_GLICEMIA = 99;
 	private final static int MIN_GLUCOSIO = 60;
 	private final static int MAX_GLUCOSIO = 109;
-	private final static int MIN_COLESTEROLO=0;
-	private final static int MAX_COLESTEROLO=200;
+	private final static int MIN_COLESTEROLO = 0;
+	private final static int MAX_COLESTEROLO=  200;
+	
+	//	MANCA IL COSTRUTTORE
 	
 	//verifica inserimento valore valido
+<<<<<<< HEAD
 	
 	public static boolean valoreValido (int valore, int min,int max  ){
 		if (valore<min && valore>max) 
@@ -21,11 +24,12 @@ public class EsameMisurabile extends Esame implements Serializable {
 		return true;
 		 
 		
+=======
+	public static boolean valoreValido (int valore, int min, int max){
+		if (valore < min && valore > max) return false;
+		return true;	
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	}
 	
-	
-	
-	
-	
-	
+	// MANCA IL TO_STRING
 }
