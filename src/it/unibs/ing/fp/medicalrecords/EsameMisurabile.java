@@ -30,8 +30,16 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	public EsameMisurabile(String esame, String luogo, String data, String ora, String raccomandazioni, String esito, int valore) {
 		super(esame, luogo, data, ora, raccomandazioni, esito);
+		
+		this.esame=esame;
+		this.data=data;
+		this.ora=ora;
+		this.raccomandazioni=raccomandazioni;
+		this.esito=esito;
 		this.valore = valore;
+	
 	}
+	
 	
 	//verifica inserimento valore valido
 	public boolean valoreValido (int min, int max){
