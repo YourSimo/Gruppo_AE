@@ -19,11 +19,13 @@ public class CartellaSanitariaMain {
 	
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
+
 	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], Esame [E] o Uscire [U]";
 	private static final String VALID_CHAR = "PEU";
 	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
 	private static final String MSG_NEXT_EXAM = null;
 	private static final String VALID_CHAR_EXAM = null;
+
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -98,5 +100,23 @@ public class CartellaSanitariaMain {
 		System.out.println(MSG_OUTRO);
 	}
 	
+
+	private static void printMsg(String msg) {
+		System.out.println(msg);
+	}
+
+	private static CartellaSanitaria makeMedicalRecords() {
+		return new CartellaSanitaria(makePatient(), makeExamList());
+	}
+//////////////////////////////////////////////////////////////////	
+		
+	private static ListaEsami makeExamList() {
+		return new ListaEsami();
+	}
+	
+
+
+
 }
+
 

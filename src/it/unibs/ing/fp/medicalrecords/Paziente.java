@@ -58,6 +58,7 @@ public class Paziente implements Serializable {
 		return cognome + " " + nome;
 	}
     
+
     /*
 	 * SCHEDA PAZIENTE
 	 * Nome: ...
@@ -71,4 +72,5 @@ public class Paziente implements Serializable {
     	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
     }
+
 }
