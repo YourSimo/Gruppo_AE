@@ -14,21 +14,10 @@ public class EsameMisurabile extends Esame implements Serializable {
 	//	MANCA IL COSTRUTTORE
 	
 	//verifica inserimento valore valido
-<<<<<<< HEAD
-	
-	public static boolean valoreValido (int valore, int min,int max  ){
-		if (valore<min && valore>max) 
-			return false;
-		 
-		
-		return true;
-		 
-		
-=======
+
 	public static boolean valoreValido (int valore, int min, int max){
 		if (valore < min && valore > max) return false;
 		return true;	
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	}
 	
 	// MANCA IL TO_STRING
