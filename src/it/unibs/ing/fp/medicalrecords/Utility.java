@@ -352,7 +352,7 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 	}
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-	public static boolean convalida (String dataNascita){
+	public static boolean convalidaDataNascita(String dataNascita){
 		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita))
 			return true;
 		else

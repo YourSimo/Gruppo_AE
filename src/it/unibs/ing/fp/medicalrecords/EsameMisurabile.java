@@ -18,10 +18,10 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	public final static int MIN_GLICEMIA = 60;
 	public final static int MAX_GLICEMIA = 99;
-	public final static int MIN_GLUCOSIO = 60;
-	public final static int MAX_GLUCOSIO = 109;
-	public final static int MIN_COLESTEROLO = 0;
-	public final static int MAX_COLESTEROLO=  200;
+	private final static int MIN_GLUCOSIO = 60;
+	private final static int MAX_GLUCOSIO = 109;
+	private final static int MIN_COLESTEROLO = 0;
+	private final static int MAX_COLESTEROLO=  200;
 	
 	private int valore;
 	
@@ -32,44 +32,18 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	//verifica inserimento valore valido
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-	
 	public static boolean valoreValido (int valore, int min,int max  ){
 		if (valore<min && valore>max) 
 			return false;
 		 
 		
 		return true;
-		 
 
-<<<<<<< HEAD
-=======
-	}
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append(TITOLO);
 		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito, valore));
 		return result.toString();
-<<<<<<< HEAD
-=======
-	// MANCA IL TO_STRING
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-=======
 
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 }
 }
