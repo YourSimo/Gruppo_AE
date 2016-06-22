@@ -108,7 +108,7 @@ public class Utility {
 ///////////////////////////////////////////////////////////////////	
 
 	public static CartellaSanitaria makeMedicalRecords() {
-		return new CartellaSanitaria(makePatient(), makeExamList());
+		return new CartellaSanitaria(makePatient(), makeExam());
 	}
 //////////////////////////////////////////////////////////////////	
 	/*classe che provvede alla creazione di un oggetto Paziente, 
@@ -211,7 +211,7 @@ public class Utility {
 	
 	
 ////////////////////////////////////////////////////////////////////////
-	private static Esame makeExamList() {
+	private static Esame makeExam() {
 		
 		//verifica esame
 		String esame = InputData.readString(MSG_ESAME);
