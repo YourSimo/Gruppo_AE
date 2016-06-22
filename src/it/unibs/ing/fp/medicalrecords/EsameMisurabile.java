@@ -1,5 +1,7 @@
 package it.unibs.ing.fp.medicalrecords;
 
-public class EsameMisurabile extends Esame {
+import java.io.Serializable;
+
+public class EsameMisurabile extends Esame implements Serializable {
 
 }
