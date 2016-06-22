@@ -12,7 +12,6 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Paziente implements Serializable {
 	private static final String TITOLO = "SCHEDA PAZIENTE";
-<<<<<<< HEAD
 	private static final String DESCRIZIONE = "Nome: %s%n"
 											+ "Cognome: %s%n"
 											+ "Indirizzo:%s%n"
@@ -25,9 +24,12 @@ public class Paziente implements Serializable {
 											+ "Codice Sanitario:%s%n"
 											+ "Gruppo Sanguigno:%s%n";
 											
+<<<<<<< HEAD
 =======
 	private static final String DESCRIZIONE = "Nome: %s%nCognome: %s%n...%n";		//	Aggiornare la Stringa
 >>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+=======
+>>>>>>> refs/heads/master2
 	
 	private String nome;
 	private String cognome;
@@ -73,7 +75,6 @@ public class Paziente implements Serializable {
 		return cognome + " " + nome;
 	}
     
-<<<<<<< HEAD
 
     /*
 	 * SCHEDA PAZIENTE
@@ -89,6 +90,7 @@ public class Paziente implements Serializable {
     	return result.toString();
     }
 
+<<<<<<< HEAD
 =======
     /*
 	 * SCHEDA PAZIENTE
@@ -104,4 +106,6 @@ public class Paziente implements Serializable {
     	return result.toString();
     }
 >>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+=======
+>>>>>>> refs/heads/master2
 }
