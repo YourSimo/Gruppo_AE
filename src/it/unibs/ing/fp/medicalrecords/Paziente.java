@@ -66,7 +66,7 @@ public class Paziente implements Serializable {
     }
     
     public String nomeCognome() {
-		return nome + " " + cognome;
+		return cognome + " " + nome;
 	}
     
 
