@@ -14,15 +14,15 @@ public class Paziente implements Serializable {
 	private static final String TITOLO = "SCHEDA PAZIENTE";
 	private static final String DESCRIZIONE = "Nome: %s%n"
 											+ "Cognome: %s%n"
-											+ "Indirizzo:%s%n"
-											+ "Telefono:%s%n"
-											+ "Email:%s%n"
-											+ "Data di nascita:%s%n"
-											+ "Luogo di nascita:%s%n"
-											+ "Genere:%s%n"
-											+ "Codice Fiscale:%s%n"
-											+ "Codice Sanitario:%s%n"
-											+ "Gruppo Sanguigno:%s%n";
+											+ "Indirizzo: %s%n"
+											+ "Telefono: %s%n"
+											+ "Email: %s%n"
+											+ "Data di nascita: %s%n"
+											+ "Luogo di nascita: %s%n"
+											+ "Genere: %s%n"
+											+ "Codice Fiscale: %s%n"
+											+ "Codice Sanitario: %s%n"
+											+ "Gruppo Sanguigno: %s%n";
 
 	
 	private String nome;
