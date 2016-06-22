@@ -77,8 +77,8 @@ public class Utility implements Serializable {
 														 "femmina", "f", "donna"};
 	//array di stringhe con cui conforntare il gruppo sanguigno
 	private final static String GRUPPO_SANGUIGNO_ACCETTABILE [] = {"Apositivo", "Bpositivo", "ABpositivo", "0positivo", "Anegativo", "Bnegativo", "ABnegativo", "0negativo",
-																  "Apos", "Bpos", "ABpos", "0pos", "Aneg", "Bneg", "ABneg", "0neg",
-																  "A+", "B+", "AB+", "0+", "A-", "B-", "AB-", "0-"};
+																  	"Apos", "Bpos", "ABpos", "0pos", "Aneg", "Bneg", "ABneg", "0neg",
+																  	"A+", "B+", "AB+", "0+", "A-", "B-", "AB-", "0-"};
 	
 	//arbitrria lunghezza stabilita x la stringa del codice sanitario
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;

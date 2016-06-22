@@ -119,6 +119,7 @@ public class CartellaSanitariaMain {
 	
 	private static void examOptions(CartellaSanitaria cs) {
 		//	Secondo switch/if e else: n° Esame o tipoEsame
+		//	Per ogni Esame richiesta di modifica
 	}
 }
 
