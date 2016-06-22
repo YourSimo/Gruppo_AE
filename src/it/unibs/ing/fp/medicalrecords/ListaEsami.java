@@ -3,6 +3,12 @@ package it.unibs.ing.fp.medicalrecords;
 import java.io.Serializable;
 import java.util.Vector;
 
+/**
+ * <h1> Class ListaEsame </h1>
+ * <p>
+ * @author Matteo Bellicini
+ *
+ */
 public class ListaEsami implements Serializable {
 	private Vector <Esame> listaEsami;
 	

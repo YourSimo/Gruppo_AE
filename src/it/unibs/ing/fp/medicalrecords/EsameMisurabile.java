@@ -1,9 +1,14 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.Serializable;
-
 import it.unibs.ing.fp.library.Formatting;
 
+/**
+ * <h1> Class EsameMisurabile </h1>
+ * 
+ * @author Matteo Bellicini
+ *
+ */
 public class EsameMisurabile extends Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME MISURABILE";
 	private static final String DESCRIZIONE = "Esame: %s%n"

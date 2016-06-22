@@ -5,6 +5,12 @@ import java.io.File;
 import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
 
+/**
+ * <h1> Class CartellaSanitariaMain </h1>
+ * <p>
+ * @author Simone Cavicchioli
+ *
+ */
 public class CartellaSanitariaMain {
 	public static final int LARGHEZZA_PRIMA_COLONNA = 8;
 	public static final int LARGHEZZA_ALTRE_COLONNE = 15;

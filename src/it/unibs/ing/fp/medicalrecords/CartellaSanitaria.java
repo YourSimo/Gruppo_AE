@@ -7,7 +7,6 @@ import it.unibs.ing.fp.library.Formatting;
 /**
  * <h1> Class CartellaSanitaria </h1>
  * <p>
- * 
  * @author Simone Cavicchioli
  *
  */
