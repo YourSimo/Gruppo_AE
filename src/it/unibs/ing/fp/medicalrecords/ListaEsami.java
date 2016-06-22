@@ -12,6 +12,7 @@ public class ListaEsami implements Serializable {
 	
 	//	metodi per aggiunta rimozione controllo
 	
+
 	public void addExam(Esame esame){
 		 listaEsami.add(esame);
 	}

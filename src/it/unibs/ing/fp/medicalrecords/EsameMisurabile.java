@@ -21,8 +21,6 @@ public class EsameMisurabile extends Esame implements Serializable {
 		return true;
 		 
 		
-		
-		
 	}
 	
 	

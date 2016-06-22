@@ -41,7 +41,8 @@ public class Utility {
 	private final static String MSG_LUOGO = "Inserisca il luogo in cui Ë stato svolto:";
 	private final static String MSG_ORA = "Inserisca l'orario in cui Ë stato svolto:";
 	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
-	 
+	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame:";
+	  
 
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
@@ -210,7 +211,7 @@ public class Utility {
 	
 	
 ////////////////////////////////////////////////////////////////////////
-	private static ListaEsami makeExamList() {
+	private static Esame makeExamList() {
 		
 		//verifica esame
 		String esame = InputData.readString(MSG_ESAME);
@@ -256,15 +257,58 @@ public class Utility {
 		    esito = null;
 			esito = InputData.readString(MSG_ESITO);	
 		};
+String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
+		
+		while (validit‡Raccomandazioni(raccomandazioni) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    raccomandazioni = null;
+			raccomandazioni = InputData.readString(MSG_RACCOMANDAZIONI);	
+		};
 		
 		
 		
 		
-		
-		return new ListaEsami(esame, luogo,data, ora,esito); 
+		return new Esame (esame, luogo, data, ora, esito, raccomandazioni); 
 	}
-	
-//////////////////////////////////////////////////////////////////////	 
+	//validit‡ metodi
+private static boolean validit‡Raccomandazioni(String raccomandazioni) {
+	if (Pattern.matches(REGEX_ALFABETO, raccomandazioni))
+	    return true;
+	  else
+	    return false;
+}
+private static boolean validit‡Esito(String esito) {
+	if (Pattern.matches(REGEX_ALFABETO, esito))
+	    return true;
+	  else
+	    return false;
+	}
+private static boolean validit‡Ora(String ora) {
+	if (Pattern.matches(REGEX_ORA, ora))
+	    return true;
+	  else
+	    return false;
+	}
+private static boolean validit‡Luogo(String luogo) {
+	if (Pattern.matches(REGEX_ALFABETO, luogo))
+	    return true;
+	  else
+	    return false;
+	}
+private static boolean validit‡Data(String data) {
+	if (Pattern.matches(REGEX_DATA, data))
+	    return true;
+	  else
+	    return false;
+	}
+private static boolean validit‡Esame(String esame) {
+	if (Pattern.matches(REGEX_ALFABETO, esame))
+	    return true;
+	  else
+	    return false;
+		
+	}
+	//////////////////////////////////////////////////////////////////////	 
     public static boolean validit‡Nome (String nome){
     	 if (Pattern.matches(REGEX_ALFABETO, nome))
     	    return true;
