@@ -4,6 +4,18 @@ import java.io.Serializable;
 
 public class EsameMisurabile extends Esame implements Serializable {
 	
+	
+	private static final String TITOLO = "SCHEDA ESAME MISURABILE";
+	private static final String DESCRIZIONE = "Esame: %s%n, "
+											+ "Raccomandazioni: %s%n,"
+											+ "Luogo: %s%n,"
+											+ "Data: %s%n,"
+											+ "Ora: %s%n,"
+											+ "Esito: %s%n,"
+											+ "Valore:%s%n,";	
+	
+	
+	
 	public final static int MIN_GLICEMIA = 60;
 	public final static int MAX_GLICEMIA = 99;
 	private final static int MIN_GLUCOSIO = 60;
@@ -32,4 +44,17 @@ public class EsameMisurabile extends Esame implements Serializable {
 		
 
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+		result.append(TITOLO);
+		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito,valore));
+		return result.toString();
+=======
+	// MANCA IL TO_STRING
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 }
