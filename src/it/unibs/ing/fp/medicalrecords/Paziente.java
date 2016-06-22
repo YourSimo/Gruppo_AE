@@ -12,7 +12,12 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Paziente implements Serializable {
 	private static final String TITOLO = "SCHEDA PAZIENTE";
-	private static final String DESCRIZIONE = "Nome: %s%nCognome: %s%n...%n";		//	Aggiornare la Stringa
+	private static final String DESCRIZIONE = "Nome: %s%n"
+											+ "Cognome: %s%n"
+											+ "Indirizzo:%s%n"
+											+ "Telefono:%s%n"
+											+ "Email:%s%n";
+											
 	
 	private String nome;
 	private String cognome;
