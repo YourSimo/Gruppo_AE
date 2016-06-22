@@ -273,7 +273,7 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 	
 	
 	
-	//validit� metodi
+	//validità metodi
 
 	
 	private static boolean convalidaRaccomandazioni(String raccomandazioni) {
