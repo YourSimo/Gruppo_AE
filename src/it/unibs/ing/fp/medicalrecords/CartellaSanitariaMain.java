@@ -25,11 +25,7 @@ public class CartellaSanitariaMain {
 	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
 	private static final String MSG_NEXT_EXAM = null;
 	private static final String VALID_CHAR_EXAM = null;
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-=======
 
->>>>>>> refs/heads/master2
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -117,15 +113,7 @@ public class CartellaSanitariaMain {
 	private static ListaEsami makeExamList() {
 		return new ListaEsami();
 	}
-	
 
-<<<<<<< HEAD
-=======
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-=======
-
-
->>>>>>> refs/heads/master2
 }
 
 
