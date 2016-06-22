@@ -20,7 +20,7 @@ public class CartellaSanitariaMain {
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
 
-	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], Esame [E] o Uscire [U]";
+	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], Esame [E] o Uscire [U] ";
 	private static final String VALID_CHAR = "PEU";
 	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
 	private static final String MSG_NEXT_EXAM = null;
@@ -62,15 +62,39 @@ public class CartellaSanitariaMain {
 		
  		System.out.println(cartellaSanitaria.toString());
  		
+		mainOptions(cartellaSanitaria);
+		
+	
+		System.out.println(MSG_SALVA);
+		OutputData.uploadSingleObject(fileCartellaSanitaria, cartellaSanitaria);
+	
+		System.out.println(MSG_OUTRO);
+	}
+	
+	/*
+	 * 	do {
+	 * 	switch() {
+	 * 		case 'U' :
+	 * 		break;
+	 * 		case 'E' :
+	 * 	-	Utente 	[U]
+	 * 	-	Esame 	[E]
+	 * 		-	n° Esame:
+	 * 		-	tipo Esame:
+	 * 	-	Chiudi	[C]
+	 * 	} while();
+	 */
+	
+	private static void mainOptions(CartellaSanitaria cs) {
 		boolean finito = false;
  		do {
  			char scelta = InputData.readCharLimitedSensitive(MSG_NEXT, VALID_CHAR);
  			switch(scelta) {
  				case 'P' :
- 					System.out.println(cartellaSanitaria.getPaziente().toString());
+ 					System.out.println(cs.getPaziente().toString());
  					break;
  				case 'E' :
- 					//	Secondo switch/if e else: n° Esame o tipoEsame
+ 					examOptions(cs);
  					break;
  				case 'U' :
  					finito = true;
@@ -80,24 +104,10 @@ public class CartellaSanitariaMain {
  			}
  			
  		} while(!finito);
-		/*
-		 * 	do {
-		 * 	switch() {
-		 * 		case 'U' :
-		 * 		break;
-		 * 		case 'E' :
-		 * 	-	Utente 	[U]
-		 * 	-	Esame 	[E]
-		 * 		-	n° Esame:
-		 * 		-	tipo Esame:
-		 * 	-	Chiudi	[C]
-		 * 	} while();
-		 */
+	}
 	
-		System.out.println(MSG_SALVA);
-		OutputData.uploadSingleObject(fileCartellaSanitaria, cartellaSanitaria);
-	
-		System.out.println(MSG_OUTRO);
+	private static void examOptions(CartellaSanitaria cs) {
+		//	Secondo switch/if e else: n° Esame o tipoEsame
 	}
 }
 

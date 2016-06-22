@@ -16,7 +16,6 @@ public class CartellaSanitaria implements Serializable {
 	private static final String DESCRIZIONE = "PAZIENTE: %s%nESAMI:";
 	private static final String[] TITOLI = {"N°", "DATA", "NOME", "VALORE"};
 	
-	
 	private Paziente paziente;
 	private ListaEsami listaEsami;
 	
