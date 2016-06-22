@@ -24,6 +24,7 @@ public class Utility {
 	private final static String MSG_GENERE =  "Inserisca il proprio genere:";
 	private final static String MSG_CODICE_FISCALE = "Inserisca il proprio codice fiscale";
 	private final static String MSG_GRUPPO_SANGUIGNO = "Inserisca il proprio gruppo sanguigno";
+
     
 	private final static String MSG_ERRORE_INSERIMENTO_ALFABETO= "Errore nell'inserimento dati. La stringa inserita deve contenere solo lettere. Ritenti.";
 	private final static String MSG_ERRORE_INSERIMENTO_INDIRIZZO = "Errore nell'inserimento dati. I dati inseriti devono essere nel formato aaaaaa aaaaaa,222. Ritenti";
@@ -31,6 +32,17 @@ public class Utility {
 	private final static String MSG_ERRORE_INSERIMENTO_EMAIL= "Errore nell'inserimento dati. La stringa deve essere nel formato aaaaaa.aaaaaa@aaaaa.aaa. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_DATA_NASCITA= "Errore nell'inserimento dati. La stringa inserita deve essere nel formato gg/mm/aaaa. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_CODICE_FISCALE= "Errore nell'inserimento dati. La stringa inserita deve rispettare la composizione del codice fiscale. Ritenti";
+
+	
+	//messaggi per esame
+	
+	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere:";		
+	private final static String MSG_DATA = "Inserisca la data in cui Ë stato svolto:";
+	private final static String MSG_LUOGO = "Inserisca il luogo in cui Ë stato svolto:";
+	private final static String MSG_ORA = "Inserisca l'orario in cui Ë stato svolto:";
+	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
+	 
+
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
 	/*regular expressions, permettono di creare una sringa formata da 
@@ -51,6 +63,9 @@ public class Utility {
 	//la regex del luogo di nascita Ë alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
+
+	private final static String REGEX_DATA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
+	private final static String REGEX_ORA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01]){2}";
 	
 	//array di stringhe con cui confrontare il genere
 	private final static String GENERE_ACCETTABILE [] = {"maschio",
@@ -88,7 +103,9 @@ public class Utility {
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;
 	
 	
+
 ///////////////////////////////////////////////////////////////////	
+
 	public static CartellaSanitaria makeMedicalRecords() {
 		return new CartellaSanitaria(makePatient(), makeExamList());
 	}
@@ -195,14 +212,56 @@ public class Utility {
 ////////////////////////////////////////////////////////////////////////
 	private static ListaEsami makeExamList() {
 		
+		//verifica esame
+		String esame = InputData.readString(MSG_ESAME);
+		
+		while (validit‡Esame(esame) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    esame = null;
+			esame = InputData.readString(MSG_ESAME);	
+		};
+		//verifica data
+		
+		String data = InputData.readString(MSG_DATA);
+		
+		while (validit‡Data(data) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    data = null;
+			data = InputData.readString(MSG_DATA);	
+		};
+		//verifica luogo
+		
+		String luogo = InputData.readString(MSG_LUOGO);
+		
+		while (validit‡Luogo(luogo) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    luogo = null;
+			luogo = InputData.readString(MSG_LUOGO);	
+		};
+		//verifica ora
+		
+		String ora = InputData.readString (MSG_ORA);
+
+		while (validit‡Ora(ora) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    ora = null;
+			ora = InputData.readString(MSG_ORA);	
+		};
+		//verifica esito
+		
+		String esito = InputData.readString (MSG_ESITO);
+		
+		while (validit‡Esito(esito) == false){
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    esito = null;
+			esito = InputData.readString(MSG_ESITO);	
+		};
 		
 		
 		
 		
 		
-		
-		
-		return new ListaEsami();
+		return new ListaEsami(esame, luogo,data, ora,esito); 
 	}
 	
 //////////////////////////////////////////////////////////////////////	 
