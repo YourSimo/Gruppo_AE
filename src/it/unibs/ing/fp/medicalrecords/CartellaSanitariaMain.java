@@ -99,21 +99,6 @@ public class CartellaSanitariaMain {
 	
 		System.out.println(MSG_OUTRO);
 	}
-	
-
-	private static void printMsg(String msg) {
-		System.out.println(msg);
-	}
-
-	private static CartellaSanitaria makeMedicalRecords() {
-		return new CartellaSanitaria(makePatient(), makeExamList());
-	}
-//////////////////////////////////////////////////////////////////	
-		
-	private static ListaEsami makeExamList() {
-		return new ListaEsami();
-	}
-
 }
 
 
