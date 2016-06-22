@@ -12,7 +12,18 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Paziente implements Serializable {
 	private static final String TITOLO = "SCHEDA PAZIENTE";
-	private static final String DESCRIZIONE = "Nome: %s%nCognome: %s%n...%n";		//	Aggiornare la Stringa
+	private static final String DESCRIZIONE = "Nome: %s%n"
+											+ "Cognome: %s%n"
+											+ "Indirizzo:%s%n"
+											+ "Telefono:%s%n"
+											+ "Email:%s%n"
+											+ "Data di nascita:%s%n"
+											+ "Luogo di nascita:%s%n"
+											+ "Genere:%s%n"
+											+ "Codice Fiscale:%s%n"
+											+ "Codice Sanitario:%s%n"
+											+ "Gruppo Sanguigno:%s%n";
+
 	
 	private String nome;
 	private String cognome;
@@ -58,6 +69,7 @@ public class Paziente implements Serializable {
 		return cognome + " " + nome;
 	}
     
+
     /*
 	 * SCHEDA PAZIENTE
 	 * Nome: ...
@@ -67,8 +79,10 @@ public class Paziente implements Serializable {
     public String toString() {
     	StringBuffer result = new StringBuffer();
     	result.append(Formatting.framing(TITOLO));
-    	result.append(String.format(DESCRIZIONE, nome, cognome));	//	Aggiungere gli atri parametri
+    	result.append(String.format(DESCRIZIONE, nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno));
     	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
     }
+
+
 }
