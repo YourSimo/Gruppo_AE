@@ -23,13 +23,7 @@ public class Paziente implements Serializable {
 											+ "Codice Fiscale:%s%n"
 											+ "Codice Sanitario:%s%n"
 											+ "Gruppo Sanguigno:%s%n";
-											
-<<<<<<< HEAD
-=======
-	private static final String DESCRIZIONE = "Nome: %s%nCognome: %s%n...%n";		//	Aggiornare la Stringa
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-=======
->>>>>>> refs/heads/master2
+
 	
 	private String nome;
 	private String cognome;
@@ -90,22 +84,5 @@ public class Paziente implements Serializable {
     	return result.toString();
     }
 
-<<<<<<< HEAD
-=======
-    /*
-	 * SCHEDA PAZIENTE
-	 * Nome: ...
-	 * Cognome: ...
-	 * ...
-	 */
-    public String toString() {
-    	StringBuffer result = new StringBuffer();
-    	result.append(Formatting.framing(TITOLO));
-    	result.append(String.format(DESCRIZIONE, nome, cognome));	//	Aggiungere gli atri parametri
-    	result.append(Formatting.cloneChar('-', TITOLO.length()));
-    	return result.toString();
-    }
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
-=======
->>>>>>> refs/heads/master2
+
 }

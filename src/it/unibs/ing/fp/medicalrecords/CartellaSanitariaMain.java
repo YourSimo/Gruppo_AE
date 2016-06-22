@@ -25,6 +25,8 @@ public class CartellaSanitariaMain {
 	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
 	private static final String MSG_NEXT_EXAM = null;
 	private static final String VALID_CHAR_EXAM = null;
+
+
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
