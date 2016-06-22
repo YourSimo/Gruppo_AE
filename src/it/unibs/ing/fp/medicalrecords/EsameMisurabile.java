@@ -11,11 +11,16 @@ public class EsameMisurabile extends Esame implements Serializable {
 	private final static int MIN_COLESTEROLO = 0;
 	private final static int MAX_COLESTEROLO=  200;
 	
-	//	MANCA IL COSTRUTTORE
+	private int valore;
+	
+	public EsameMisurabile(String esame, String luogo, String data, String ora, String raccomandazioni, String esito, int valore) {
+		super(esame, luogo, data, ora, raccomandazioni, esito);
+		this.valore = valore;
+	}
 	
 	//verifica inserimento valore valido
 
-	public static boolean valoreValido (int valore, int min, int max){
+	public boolean valoreValido(int min, int max){
 		if (valore < min && valore > max) return false;
 		return true;	
 	}
