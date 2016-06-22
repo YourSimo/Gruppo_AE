@@ -55,7 +55,7 @@ public class CartellaSanitariaMain {
 			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
 			
 			ListaEsami listaEsami = new ListaEsami();
-			listaEsami.addExam(new Esame("Glicemia", "Raccom.", "Brescia", "24/06/2016", "8:30"));
+			listaEsami.addExam(new Esame("Glicemia", "Raccom.", "Brescia", "24/06/2016", "8:30", "Esito"));
 			
 			cartellaSanitaria = new CartellaSanitaria(paziente, listaEsami);
 		}

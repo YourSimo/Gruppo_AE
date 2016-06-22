@@ -37,9 +37,9 @@ public class Utility {
 	//messaggi per esame
 	
 	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere:";		
-	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto:";
-	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto:";
-	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto:";
+	private final static String MSG_DATA = "Inserisca la data in cui ï¿½ stato svolto:";
+	private final static String MSG_LUOGO = "Inserisca il luogo in cui ï¿½ stato svolto:";
+	private final static String MSG_ORA = "Inserisca l'orario in cui ï¿½ stato svolto:";
 	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
 	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame:";
 	  
@@ -61,7 +61,7 @@ public class Utility {
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
-	//la regex del luogo di nascita è alfabeto
+	//la regex del luogo di nascita ï¿½ alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 
@@ -108,7 +108,7 @@ public class Utility {
 ///////////////////////////////////////////////////////////////////	
 
 	public static CartellaSanitaria makeMedicalRecords() {
-		return new CartellaSanitaria(makePatient(), makeExam());
+		return new CartellaSanitaria(makePatient(), makeExamList());
 	}
 //////////////////////////////////////////////////////////////////	
 	/*classe che provvede alla creazione di un oggetto Paziente, 
@@ -273,7 +273,7 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 	
 	
 	
-	//validità metodi
+	//validitï¿½ metodi
 
 	
 	private static boolean convalidaRaccomandazioni(String raccomandazioni) {
@@ -404,10 +404,10 @@ String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 		for (int i=0; i<length; i++) {
 		//si assegna ad n un numero casuale generato tra 0 e 36
 			int n = rnd.nextInt (36);
-		    //all'isesimo elemento dell'array si mette un numero se n è minore di dieci, o una lettera se n è maggiore
+		    //all'isesimo elemento dell'array si mette un numero se n ï¿½ minore di dieci, o una lettera se n ï¿½ maggiore
 			arr[i] = (char) (n < 10 ? '0'+n : 'a'+n-10);
 		}
-        //l'array è trasformato in stringa e viene restituita
+        //l'array ï¿½ trasformato in stringa e viene restituita
 		return new String (arr);
 		}
 }
