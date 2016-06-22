@@ -174,7 +174,7 @@ public class Utility {
 		
 		
 		
-		return new ListaEsami();
+		return new ListaEsami(esame, luogo,data, ora,esito);
 	}
 	
 //////////////////////////////////////////////////////////////////////	 

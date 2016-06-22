@@ -11,6 +11,8 @@ public class EsameMisurabile extends Esame implements Serializable {
 	private final static int MIN_COLESTEROLO=0;
 	private final static int MAX_COLESTEROLO=200;
 	
+	//verifica inserimento valore corretto
+	
 	public static boolean valoreValido (int valore, int min,int max  ){
 		if (valore<min && valore>max) 
 			return false;
