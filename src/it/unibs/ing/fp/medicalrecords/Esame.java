@@ -12,7 +12,12 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME";
-	private static final String DESCRIZIONE = "Esame: %s%n, Raccomandazioni: %s%n, ...";	//	Aggiornare la Stringa
+	private static final String DESCRIZIONE = "Esame: %s%n, "
+											+ "Raccomandazioni: %s%n,"
+											+ "Luogo: %s%n,"
+											+ "Data: %s%n,"
+											+ "Ora: %s%n,"
+											+ "Esito: %s%n,";	
 	
 	private String esame;
 	private String raccomandazioni;
@@ -57,7 +62,7 @@ public class Esame implements Serializable {
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append(TITOLO);
-		result.append(String.format(DESCRIZIONE, esame, raccomandazioni));	// 	Aggiungere gli atri parametri
+		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito));
 		return result.toString();
 	}
 
