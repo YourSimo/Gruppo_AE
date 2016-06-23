@@ -1,7 +1,6 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.File;
-
 import it.unibs.ing.fp.library.Formatting;
 import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
@@ -9,6 +8,7 @@ import it.unibs.ing.fp.library.OutputData;
 /**
  * <h1> Class CartellaSanitariaMain </h1>
  * <p>
+ * @author Federico Avino
  * @author Simone Cavicchioli
  *
  */
@@ -33,12 +33,14 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
+<<<<<<< HEAD
 	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
 
+=======
+	
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	private static final String [] TITOLI = {"DATA", "VALORE"};
 	
-	private static final String MSG_DATA = null;
-	private static final String MSG_ERRORE_INSERIMENTO = null;
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -64,9 +66,9 @@ public class CartellaSanitariaMain {
 	
 		if (!caricamentoRiuscito) {
 			System.out.println(MSG_NO_FILE);
-			myCartellaSanitaria = Utility.makeMedicalRecords();
+			//	myCartellaSanitaria = Utility.makeMedicalRecords();
 		}
-			/*
+			
 			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
 			
 			Esame e1 = new Esame("Radiografia", "Brescia", "21/04/2014", "17:40", "Raccom.", "Esito");
@@ -82,7 +84,7 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e4);
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
-			*/
+			
 		//	myCartellaSanitaria = Utility.makeMedicalRecords();
 		mainOptions(myCartellaSanitaria);
 		
@@ -126,9 +128,12 @@ public class CartellaSanitariaMain {
 	
 	private static void examOptions(CartellaSanitaria cs) {
 		String datoInserito = InputData.readStringNotEmpty(MSG_NEXT_EXAM);
-		if(Utility.convalidaNumeri(datoInserito)) 
-			System.out.println(cs.getListaEsami().getExam(Integer.parseInt(datoInserito) - 1).toString());
-		
+		if(Utility.convalidaNumeri(datoInserito)) {
+			Esame examSelected = cs.getListaEsami().getExam(Integer.parseInt(datoInserito) - 1);
+			System.out.println(examSelected.toString());
+			Utility.editExam(examSelected);
+		}
+			
 		else if(Utility.convalidaNome(datoInserito)) {
 			boolean trovato = false;
 			for(int i = 0; i < cs.getListaEsami().getSize(); i++)
@@ -141,7 +146,8 @@ public class CartellaSanitariaMain {
 				System.out.println(heading());
 				for(int i = 0; i < cs.getListaEsami().getSize(); i++)
 					if(datoInserito.equalsIgnoreCase(cs.getListaEsami().getExam(i).esame) && cs.getListaEsami().getExam(i) instanceof EsameMisurabile) 
-						System.out.println(((EsameMisurabile) cs.getListaEsami().getExam(i)).toResult());	
+						System.out.println(((EsameMisurabile) cs.getListaEsami().getExam(i)).toResult());
+				System.out.println(Formatting.cloneChar('-', datoInserito.length()));
 			}
 			else if(trovato == false) System.out.println(MSG_NO_EXAM);
 		}
@@ -152,6 +158,7 @@ public class CartellaSanitariaMain {
 	private static void homeScreen() {
 		String datoInserito = InputData.readString(MSG_HOME_SCREEN);
 		if(!datoInserito.equals(""));
+<<<<<<< HEAD
 	}
 	
 	private static void editExam(Esame examToEdit) {
@@ -179,6 +186,8 @@ public class CartellaSanitariaMain {
 			
 			//	Valore
 		}
+=======
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	}
 	
 	//	Data	Valore
