@@ -42,7 +42,7 @@ public class Utility implements Serializable {
 	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere:";		
 	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa):";
 	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto:";
-	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto:";
+	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo/mm):";
 	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
 	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame:";
 	  
@@ -50,11 +50,11 @@ public class Utility implements Serializable {
 	
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
-	/*regular expressions, permettono di creare una sringa formata da 
+	/* regular expressions, permettono di creare una sringa formata da 
 	 * caratteri speciali che il computer interpreta appositamente. 
 	 * Sono usate per verificare se delle stringhe rispettano un determinato
 	 * formato specificato appunto grazie alla stringa formata dalle regex
-	 * */
+	 */
 	//la regex dell'alfabeto verifica che la stringa si componga solo di lettere
 	private final static String REGEX_ALFABETO = "^[a-zA-Z]+$";
 	//la stringa dell'indirizzo deve essere fatta da caratteri spazio caratteri virgola numeri
@@ -65,7 +65,7 @@ public class Utility implements Serializable {
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
-	//la regex del luogo di nascita � alfabeto
+	//la regex del luogo di nascita è alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 
@@ -83,18 +83,12 @@ public class Utility implements Serializable {
 	//arbitrria lunghezza stabilita x la stringa del codice sanitario
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;
 	
-	private final static String ESAME_MISURABILE[] = {"GLUCOSIO","GLICEMIA","COLESTEROLO"};
+	private final static String ESAME_MISURABILE [] = {"GLUCOSIO","GLICEMIA","COLESTEROLO"};
 	
 	
 	
 	public static CartellaSanitaria makeMedicalRecords() {
 		return new CartellaSanitaria(makePatient(), makeExamList());
-	}
-	
-	
-	public static void addExam() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	
@@ -341,7 +335,7 @@ public class Utility implements Serializable {
 	}
 
 	private static boolean convalidaGenere(String genere) {
-		for ( int i = 0; i <GENERE_ACCETTABILE.length; i++)
+		for (int i = 0; i < GENERE_ACCETTABILE.length; i++)
 			if (genere.equalsIgnoreCase(GENERE_ACCETTABILE[i])) return true;	
 		return false;
 	}
@@ -354,7 +348,7 @@ public class Utility implements Serializable {
 	private static boolean convalidaGruppoSanguigno(String gruppoSanguigno) {
 		//si crea una nuova stringa senza gli spazi
 		String strOut = gruppoSanguigno.replaceAll ("\\s+$", "");
-		for ( int i = 0; i <GRUPPO_SANGUIGNO_ACCETTABILE.length; i++)
+		for (int i = 0; i <GRUPPO_SANGUIGNO_ACCETTABILE.length; i++)
 			if (strOut.equalsIgnoreCase(GRUPPO_SANGUIGNO_ACCETTABILE[i])) return true;	
 		return false;
 	}

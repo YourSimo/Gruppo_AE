@@ -12,11 +12,11 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME";
-	private static final String DESCRIZIONE = "Esame: %s%n, "
-											+ "Luogo: %s%n,"
-											+ "Data: %s%n,"
-											+ "Ora: %s%n,"
-											+ "Raccomandazioni: %s%n,"
+	private static final String DESCRIZIONE = "Esame: %s%n"
+											+ "Luogo: %s%n"
+											+ "Data: %s%n"
+											+ "Ora: %s%n"
+											+ "Raccomandazioni: %s%n"
 											+ "Esito: %s%n";	
 	
 	protected String esame;
@@ -52,15 +52,19 @@ public class Esame implements Serializable {
 		return result.toString();
 	}
 	
-	/*
+	/* ------------
 	 * SCHEDA ESAME
+	 * ------------
 	 * Esame: ...
 	 * Raccomandazioni: ...
+	 * ...
+	 * ------------
 	 */
 	public String toString() {
 		StringBuffer result = new StringBuffer();
-		result.append(TITOLO);
+		result.append(Formatting.framing(TITOLO));
 		result.append(String.format(DESCRIZIONE, esame, luogo, data, ora, raccomandazioni, esito));
+		result.append(Formatting.cloneChar('-', TITOLO.length()));
 		return result.toString();
 	}
 }

@@ -54,15 +54,19 @@ public class EsameMisurabile extends Esame implements Serializable {
 		return result.toString();
 	}
 	
-	/*
+	/* -----------------------
 	 * SCHEDA ESAME MISURABILE
+	 * -----------------------
 	 * Esame: ...
 	 * Raccomandazioni: ...
+	 * ...
+	 * -----------------------
 	 */
 	public String toString() {
 		StringBuffer result = new StringBuffer();
-		result.append(TITOLO);
+		result.append(Formatting.framing(TITOLO));
 		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito, valore));
+		result.append(Formatting.cloneChar('-', TITOLO.length()));
 		return result.toString();
 	}
 }

@@ -32,6 +32,8 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
 	//	private static final String VALID_CHAR_EXAM = null;
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME: ";
+	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
+	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
 
 	
 	public static void main(String[] args) {
@@ -62,7 +64,7 @@ public class CartellaSanitariaMain {
 		}
 			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
 			
-			Esame e1 = new Esame("Glicemia", "Brescia", "24/06/2016", "8:30", "Raccom.", "Esito");
+			Esame e1 = new Esame("Glicemia", "Brescia", "22/05/2015", "8:40", "Raccom.", "Esito");
 			Esame e2 = new Esame("Glicemia", "Brescia", "24/06/2016", "8:30", "Raccom.", "Esito");
 			Esame e3 = new EsameMisurabile("Colesterolo", "Brescia", "24/06/2016", "8:30", "Raccom.", "Esito", 70);
 			
@@ -72,7 +74,7 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e3);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
 		
- 		System.out.println(myCartellaSanitaria.toString());
+ 		//	System.out.println(myCartellaSanitaria.toString());
  		
 		mainOptions(myCartellaSanitaria);
 		
@@ -100,13 +102,16 @@ public class CartellaSanitariaMain {
 	private static void mainOptions(CartellaSanitaria cs) {
 		boolean finito = false;
  		do {
+ 			System.out.println(cs.toString());
  			char scelta = InputData.readCharLimitedSensitive(MSG_NEXT, VALID_CHAR);
  			switch(scelta) {
  				case 'P' :
  					System.out.println(cs.getPaziente().toString());
+ 					homeScreen();
  					break;
  				case 'E' :
  					examOptions(cs);
+ 					homeScreen();
  					break;
  				case 'A' :
  					cs.getListaEsami().addExam(Utility.sceltaCostruttoreEsame());	// modifica in Utility.whichExam()
@@ -124,20 +129,32 @@ public class CartellaSanitariaMain {
 	private static void examOptions(CartellaSanitaria cs) {
 		String datoInserito = InputData.readStringNotEmpty(MSG_NEXT_EXAM);
 		if(Utility.convalidaTelefono(datoInserito)) 
-			System.out.println(cs.getListaEsami().getExam(Integer.parseInt(datoInserito)).toString());
+			System.out.println(cs.getListaEsami().getExam(Integer.parseInt(datoInserito) - 1).toString());
+		
 		else if(Utility.convalidaNome(datoInserito)) {
 			boolean trovato = false;
 			for(int i = 0; i < cs.getListaEsami().getSize(); i++)
-				if(datoInserito.equals(cs.getListaEsami().getExam(i).esame)) {
-					System.out.println(cs.getListaEsami().getExam(i).toString());
+				if(datoInserito.equalsIgnoreCase(cs.getListaEsami().getExam(i).esame)) {
+					System.out.println(cs.getListaEsami().getExam(i).toSummary());
 					trovato = true;
 				}
 			if(trovato == false) System.out.println(MSG_NO_EXAM);
 		}
-		else System.out.println(CHOISE_ERR + datoInserito);
-		//	Secondo switch/if e else: n° Esame o tipoEsame
-		//	
+		else System.out.println(CHOISE_ERR + datoInserito);	
 		//	Per ogni Esame richiesta di modifica
+	}
+	
+	private static void homeScreen() {
+		String datoInserito = InputData.readString(MSG_HOME_SCREEN);
+		if(!datoInserito.equals(""));
+	}
+	
+	private static void editExam(Esame examToEdit) {
+		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
+			//	Luogo e orario
+			
+			//	Valore
+		}
 	}
 }
 

@@ -69,11 +69,13 @@ public class Paziente implements Serializable {
 	}
     
 
-    /*
+    /* ---------------
 	 * SCHEDA PAZIENTE
+	 * ---------------
 	 * Nome: ...
 	 * Cognome: ...
 	 * ...
+	 * ---------------
 	 */
     //restituisce una stringa formttata con gli attributi dell'oggetto
     public String toString() {
