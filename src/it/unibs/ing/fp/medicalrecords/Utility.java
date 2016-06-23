@@ -61,16 +61,16 @@ public class Utility implements Serializable {
 	private final static String REGEX_INDIRIZZO = "^[a-zA-Z]+[\t\n\r\f][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
 	//solo numeri
 	private final static String REGEX_TELEFONO = "^[0-9]+$";
-	//lettere o numeri chiocciola stringa o numeri punto e da due a 4 caratteri
+	//lettere o numeri chiocciola stringa alfanumerica punto e da due a 4 caratteri
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](19|20)[0-9]{2}";
-	//la regex del luogo di nascita Ã¨ alfabeto
+	//la regex del luogo di nascita è l'alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 
-	private final static String REGEX_DATA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
-	private final static String REGEX_ORA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01]){2}";
+	private final static String REGEX_DATA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](20)[0-9]{2}";
+	private final static String REGEX_ORA = "(0[0-9]|1[0-9]|2[0-4])[:.](0[1-9]|[1][0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]){2}";
 	
 	//array di stringhe con cui confrontare il genere
 	private final static String GENERE_ACCETTABILE [] = {"maschio", "m", "uomo",
