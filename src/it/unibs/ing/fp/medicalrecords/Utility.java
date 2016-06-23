@@ -61,7 +61,7 @@ public class Utility implements Serializable {
 	//la stringa dell'indirizzo deve essere fatta da caratteri spazio caratteri virgola numeri
 	private final static String REGEX_INDIRIZZO = "^[a-zA-Z]+[\t\n\r\f][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
 	//solo numeri
-	private final static String REGEX_TELEFONO = "^[0-9]+$";
+	private final static String REGEX_NUMERI = "^[0-9]+$";
 	//lettere o numeri chiocciola stringa alfanumerica punto e da due a 4 caratteri
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 

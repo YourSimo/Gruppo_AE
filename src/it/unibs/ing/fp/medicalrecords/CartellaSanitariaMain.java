@@ -64,8 +64,9 @@ public class CartellaSanitariaMain {
 	
 		if (!caricamentoRiuscito) {
 			System.out.println(MSG_NO_FILE);
-			//	cartellaSanitaria = Utility.makeMedicalRecords();
+			myCartellaSanitaria = Utility.makeMedicalRecords();
 		}
+			/*
 			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
 			
 			Esame e1 = new Esame("Radiografia", "Brescia", "21/04/2014", "17:40", "Raccom.", "Esito");
@@ -81,7 +82,8 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e4);
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
-		
+			*/
+		myCartellaSanitaria = Utility.makeMedicalRecords();
 		mainOptions(myCartellaSanitaria);
 		
 		System.out.println(MSG_SALVA);
@@ -154,6 +156,7 @@ public class CartellaSanitariaMain {
 	
 	private static void editExam(Esame examToEdit) {
 		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
+<<<<<<< HEAD
 			if(InputData.yesOrNo(MSG_EDIT_DATA)){
 				String data = InputData.readString(MSG_DATA);
 				
@@ -163,6 +166,10 @@ public class CartellaSanitariaMain {
 					data = InputData.readString(MSG_DATA);	
 				};
 			}
+=======
+			
+			//	Luogo e orario
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 			
 			//	Valore
 		}
