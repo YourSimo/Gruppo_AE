@@ -239,17 +239,18 @@ public class Utility implements Serializable {
 		    ora = null;
 			ora = InputData.readString(MSG_ORA);	
 		};
-		//nessun controllo sull'esito x' l'utente potrebbe vler inserire una varietà di dati troppo ampia
+		//nessun controllo sull'esito x' l'utente potrebbe vler inserire una varietï¿½ di dati troppo ampia
 		
-		String esito = InputData.readString (MSG_ESITO);
+		String esito = InputData.readString(MSG_ESITO);
 		
 		String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
-		
+		/*
 		while (convalidaRaccomandazioni(raccomandazioni) == false) {
 			System.out.println(MSG_ERRORE_INSERIMENTO);
 		    raccomandazioni = null;
 			raccomandazioni = InputData.readString(MSG_RACCOMANDAZIONI);	
 		};
+		*/
 		return new Esame(esame, luogo, data, ora, esito, raccomandazioni); 
 	}
 	
@@ -265,12 +266,12 @@ public class Utility implements Serializable {
 	}
 	
 	//	Metodi ValiditÃ 
-	
+	/*
 	private static boolean convalidaRaccomandazioni(String raccomandazioni) {
 		if (Pattern.matches(REGEX_ALFABETO, raccomandazioni)) return true;
 		else return false;
 	}
-	
+	*/
 	
 	
 	private static boolean convalidaOra(String ora) {
@@ -283,7 +284,7 @@ public class Utility implements Serializable {
 		else return false;
 	}
 	
-	private static boolean convalidaData(String data) {
+	public static boolean convalidaData(String data) {
 		if (Pattern.matches(REGEX_DATA, data)) return true;
 		else return false;
 	}
