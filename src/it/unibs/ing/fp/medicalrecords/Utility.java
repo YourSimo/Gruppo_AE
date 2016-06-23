@@ -304,7 +304,7 @@ public class Utility implements Serializable {
 		if (Pattern.matches(REGEX_EMAIL, email)) return true;
     	else return false;
 	}
-<<<<<<< HEAD
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 	public static boolean convalidaDataNascita(String dataNascita){
@@ -312,12 +312,12 @@ public class Utility implements Serializable {
 			return true;
 		else
 			return false;
-=======
+
 	
 	private static boolean convalidaDataNascita(String dataNascita) {
 		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita)) return true;
 		else return false;
->>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+
 	}
 	
 	private static boolean convalidaLuogoNascita(String luogoNascita) {
