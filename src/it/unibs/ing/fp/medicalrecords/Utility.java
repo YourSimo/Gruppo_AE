@@ -31,7 +31,7 @@ public class Utility implements Serializable {
     
 	private final static String MSG_ERRORE_INSERIMENTO_ALFABETO = "Errore nell'inserimento dati. La stringa inserita deve contenere solo lettere. Ritenti.";
 	private final static String MSG_ERRORE_INSERIMENTO_INDIRIZZO = "Errore nell'inserimento dati. I dati inseriti devono essere nel formato aaaaaa aaaaaa,222. Ritenti";
-	private final static String MSG_ERRORE_INSERIMENTO_TELEFONO = "Errore nell'inserimento dati. La stringa inserita deve contenere solo numeri. Ritenti";
+	private final static String MSG_ERRORE_INSERIMENTO_NUMERI = "Errore nell'inserimento dati. La stringa inserita deve contenere solo numeri. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_EMAIL = "Errore nell'inserimento dati. La stringa deve essere nel formato aaaaaa.aaaaaa@aaaaa.aaa. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_DATA_NASCITA = "Errore nell'inserimento dati. La stringa inserita deve essere nel formato gg/mm/aaaa. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_CODICE_FISCALE = "Errore nell'inserimento dati. La stringa inserita deve rispettare la composizione del codice fiscale. Ritenti";
@@ -46,6 +46,7 @@ public class Utility implements Serializable {
 	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo:mm): ";
 	private final static String MSG_ESITO = "Inserisca l'esito dell'esame ( nel caso non sia disponibile inserire ------------: ";
 	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame: ";
+	private final static String MSG_VALORE = "Inserisca il valore dell'esame: ";
 	  
 	private static final String MSG_ALTRI_ESAMI = "Inserire un altro esame in elenco?";
 	
@@ -59,7 +60,7 @@ public class Utility implements Serializable {
 	//la regex dell'alfabeto verifica che la stringa si componga solo di lettere
 	private final static String REGEX_ALFABETO = "^[a-zA-Z]+$";
 	//la stringa dell'indirizzo deve essere fatta da caratteri spazio caratteri virgola numeri
-	private final static String REGEX_INDIRIZZO = "^[a-zA-Z]+[\t\n\r\f][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
+	private final static String REGEX_INDIRIZZO = "^[a-zA-Z]+[-][a-zA-Z]+[,][0-9]+$";//stringa spazio stringa virgola numeri
 	//solo numeri
 	private final static String REGEX_NUMERI = "^[0-9]+$";
 	//lettere o numeri chiocciola stringa alfanumerica punto e da due a 4 caratteri
@@ -122,8 +123,8 @@ public class Utility implements Serializable {
 		//***************************************************
 		String telefono = InputData.readString(MSG_TELEFONO);
 
-		while (convalidaTelefono(telefono) == false) {
-			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
+		while (convalidaNumeri(telefono) == false) {
+			System.out.println(MSG_ERRORE_INSERIMENTO_NUMERI);
 		    telefono = null;
 			telefono = InputData.readString(MSG_TELEFONO);	
 		};
@@ -255,10 +256,10 @@ public class Utility implements Serializable {
 	private static EsameMisurabile makeMeasurableExam (String esame){
 		String valore = InputData.readString(MSG_TELEFONO);
 
-		while (convalidaTelefono(valore) == false) {
-			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
+		while (convalidaNumeri(valore) == false) {
+			System.out.println(MSG_ERRORE_INSERIMENTO_NUMERI);
 		    valore = null;
-			valore = InputData.readString(MSG_TELEFONO);	
+			valore = InputData.readString(MSG_VALORE);	
 		};
 		return new EsameMisurabile(makeExam(esame), Integer.parseInt(valore));
 	}
@@ -306,8 +307,8 @@ public class Utility implements Serializable {
     	else return false;
 	}
 	
-	public static boolean convalidaTelefono(String telefono) {
-		if (Pattern.matches(REGEX_TELEFONO, telefono)) return true;
+	public static boolean convalidaNumeri(String telefono) {
+		if (Pattern.matches(REGEX_NUMERI, telefono)) return true;
     	else return false;
 	}
 	
