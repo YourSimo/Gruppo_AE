@@ -313,6 +313,7 @@ public class Utility implements Serializable {
 	private static boolean convalidaDataNascita(String dataNascita) {
 		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita)) return true;
 		else return false;
+
 	}
 	
 	private static boolean convalidaLuogoNascita(String luogoNascita) {
