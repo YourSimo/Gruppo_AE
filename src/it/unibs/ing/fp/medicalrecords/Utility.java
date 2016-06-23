@@ -70,7 +70,7 @@ public class Utility implements Serializable {
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 
 	private final static String REGEX_DATA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](20)[0-9]{2}";
-	private final static String REGEX_ORA = "(0[0-9]|1[0-9]|2[0-4])[:.](0[1-9]|[1][0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]){2}";
+	private final static String REGEX_ORA = "(0[0-9]|1[0-9]|2[0-4])[:|.](0[1-9]|[1][0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]){2}";
 	
 	//array di stringhe con cui confrontare il genere
 	private final static String GENERE_ACCETTABILE [] = {"maschio", "m", "uomo",
