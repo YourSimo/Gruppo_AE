@@ -17,16 +17,16 @@ import it.unibs.ing.fp.library.InputData;
 public class Utility implements Serializable {
 	//messaggi per richiedere inserimento dati
 	private final static String MSG_INTRO_INSERIMENTO = "Benvenuto. Di seguito potrà inserire i dati personali per la sua cartella medica; tutti i campi sono obbligatori";
-	private final static String MSG_NOME = "Inserisca il proprio nome:";
-	private final static String MSG_COGNOME = "Inserisca il proprio cognome:";
-	private final static String MSG_INDIRIZZO = "Inserisca il proprio indirizzo:";
-	private final static String MSG_TELEFONO = "Inserisca il proprio numero di telefono";
-	private final static String MSG_EMAIL = "Inserisca la propria email:";
-	private final static String MSG_DATA_NASCITA = "Inserisca la propria data di nascita:";
-	private final static String MSG_LUOGO_NASCITA = "Inserisca il proprio luogo di nascita:";
-	private final static String MSG_GENERE =  "Inserisca il proprio genere:";
-	private final static String MSG_CODICE_FISCALE = "Inserisca il proprio codice fiscale";
-	private final static String MSG_GRUPPO_SANGUIGNO = "Inserisca il proprio gruppo sanguigno";
+	private final static String MSG_NOME = "Inserisca il proprio nome: ";
+	private final static String MSG_COGNOME = "Inserisca il proprio cognome: ";
+	private final static String MSG_INDIRIZZO = "Inserisca il proprio indirizzo: ";
+	private final static String MSG_TELEFONO = "Inserisca il proprio numero di telefono: ";
+	private final static String MSG_EMAIL = "Inserisca la propria email: ";
+	private final static String MSG_DATA_NASCITA = "Inserisca la propria data di nascita: ";
+	private final static String MSG_LUOGO_NASCITA = "Inserisca il proprio luogo di nascita: ";
+	private final static String MSG_GENERE =  "Inserisca il proprio genere: ";
+	private final static String MSG_CODICE_FISCALE = "Inserisca il proprio codice fiscale: ";
+	private final static String MSG_GRUPPO_SANGUIGNO = "Inserisca il proprio gruppo sanguigno: ";
 
     
 	private final static String MSG_ERRORE_INSERIMENTO_ALFABETO = "Errore nell'inserimento dati. La stringa inserita deve contenere solo lettere. Ritenti.";
@@ -39,12 +39,12 @@ public class Utility implements Serializable {
 	
 	//messaggi per esame
 	
-	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere:";		
-	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa):";
-	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto:";
-	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo/mm):";
-	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
-	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame:";
+	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere: ";		
+	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa): ";
+	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto: ";
+	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo:mm): ";
+	private final static String MSG_ESITO = "Inserisca l'esito dell'esame: ";
+	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame: ";
 	  
 	private static final String MSG_ALTRI_ESAMI = "Inserire un altro esame in elenco?";
 	
@@ -65,7 +65,7 @@ public class Utility implements Serializable {
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](19|20)[0-9]{2}";
-	//la regex del luogo di nascita � l'alfabeto
+	//la regex del luogo di nascita � l'alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 
@@ -359,7 +359,7 @@ public class Utility implements Serializable {
 	
 	//	genera stringa random formata da lettere e numeri e lunga 10 caratteri
 	private static String randomString(int length) {
-		Random rnd = new Random ();	//	creazione oggetto classe random
+		Random rnd = new Random();	//	creazione oggetto classe random
 		
 		char[] arr = new char[length];	//	array di caratteri di lunghezza length
 		//si scorre l'array
