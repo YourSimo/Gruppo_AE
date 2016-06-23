@@ -64,7 +64,7 @@ public class Utility implements Serializable {
 	//lettere o numeri chiocciola stringa o numeri punto e da due a 4 caratteri
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
-	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)[0-9]{2}";
+	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](19|20)[0-9]{2}";
 	//la regex del luogo di nascita è alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
