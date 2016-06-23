@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="it.unibs.ing.fp.medicalrecords.ListaEsami" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/ListaEsami.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="170" x="244" y="355"/>    
+    <position height="173" width="170" x="62" y="1453"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,25 +12,25 @@
   </class>  
   <class id="2" language="java" name="it.unibs.ing.fp.medicalrecords.Paziente" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/Paziente.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="281" width="464" x="454" y="355"/>    
+    <position height="353" width="464" x="293" y="1453"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="it.unibs.ing.fp.medicalrecords.Esame" project="Gruppo_AE" 
+  <class id="3" language="java" name="it.unibs.ing.fp.medicalrecords.CartellaSanitariaMain" project="Gruppo_AE" 
+    file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/CartellaSanitariaMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="389" width="230" x="453" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="it.unibs.ing.fp.medicalrecords.Esame" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/Esame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="244" x="244" y="676"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="it.unibs.ing.fp.medicalrecords.Contenitore" project="Gruppo_AE" 
-    file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/Contenitore.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="253" x="284" y="37"/>    
+    <position height="263" width="279" x="253" y="1846"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="it.unibs.ing.fp.medicalrecords.Utility" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/Utility.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="203" x="41" y="37"/>    
+    <position height="1127" width="351" x="62" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="it.unibs.ing.fp.medicalrecords.EsameMisurabile" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/EsameMisurabile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="83" width="144" x="244" y="889"/>    
+    <position height="299" width="352" x="478" y="2149"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="it.unibs.ing.fp.medicalrecords.CartellaSanitaria" project="Gruppo_AE" 
     file="/Gruppo_AE/src/it/unibs/ing/fp/medicalrecords/CartellaSanitaria.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="83" width="237" x="284" y="232"/>    
+    <position height="209" width="237" x="123" y="1204"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,59 +66,82 @@
   </class>  
   <association id="8">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="9" name="paziente"/>      
+      <attribute id="9" name="listaEsami"/>      
       <multiplicity id="10" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="11">    
+    <bendpoint x="262" y="1453"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="12">    
+    <bendpoint x="808" y="1204"/>    
+    <bendpoint x="808" y="1453"/>    
+    <bendpoint x="808" y="1846"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="13">    
+    <bendpoint x="390" y="1204"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="15">    
+    <bendpoint x="31" y="1204"/>    
+    <bendpoint x="31" y="1453"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="18">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="listaEsami"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="21">    
+    <bendpoint x="92" y="1204"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="22">    
+    <bendpoint x="71" y="1204"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="23">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="24" name="paziente"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="11">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="12" name="cartellaSanitaria"/>      
-      <multiplicity id="13" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="14">    
-    <bendpoint x="253" y="232"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="15" name="listaEsami">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="16" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="listaEsami"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="21">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="22" name="listaEsami"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="24">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="1"/>  
+  <dependency id="26">    
+    <bendpoint x="787" y="1204"/>    
+    <bendpoint x="787" y="1453"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="25">    
-    <end type="SOURCE" refId="7"/>    
+  <dependency id="27">    
+    <bendpoint x="411" y="1204"/>    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

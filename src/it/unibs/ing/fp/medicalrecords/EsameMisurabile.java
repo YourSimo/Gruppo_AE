@@ -1,20 +1,23 @@
 package it.unibs.ing.fp.medicalrecords;
 
 import java.io.Serializable;
+import it.unibs.ing.fp.library.Formatting;
 
+/**
+ * <h1> Class EsameMisurabile </h1>
+ * 
+ * @author Matteo Bellicini
+ *
+ */
 public class EsameMisurabile extends Esame implements Serializable {
-	
-	
 	private static final String TITOLO = "SCHEDA ESAME MISURABILE";
-	private static final String DESCRIZIONE = "Esame: %s%n, "
-											+ "Raccomandazioni: %s%n,"
-											+ "Luogo: %s%n,"
-											+ "Data: %s%n,"
-											+ "Ora: %s%n,"
-											+ "Esito: %s%n,"
-											+ "Valore:%s%n,";	
-	
-	
+	private static final String DESCRIZIONE = "Esame: %s%n"
+											+ "Raccomandazioni: %s%n"
+											+ "Luogo: %s%n"
+											+ "Data: %s%n"
+											+ "Ora: %s%n"
+											+ "Esito: %s%n"
+											+ "Valore: %s%n";	
 	
 	public final static int MIN_GLICEMIA = 60;
 	public final static int MAX_GLICEMIA = 99;
@@ -27,23 +30,57 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	public EsameMisurabile(String esame, String luogo, String data, String ora, String raccomandazioni, String esito, int valore) {
 		super(esame, luogo, data, ora, raccomandazioni, esito);
+		
+		this.esame=esame;
+		this.data=data;
+		this.ora=ora;
+		this.raccomandazioni=raccomandazioni;
+		this.esito=esito;
 		this.valore = valore;
+	
 	}
 	
+	
 	//verifica inserimento valore valido
+<<<<<<< HEAD
 
 	public static boolean valoreValido (int valore, int min,int max  ){
 		if (valore<min && valore>max) 
+=======
+	public boolean valoreValido (int min, int max){
+		if (valore < min && valore > max) 
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 			return false;
-		 
-		
 		return true;
+<<<<<<< HEAD
 
+=======
+	}
+	
+	//	data	nomeEsame	valore
+	public String toSummary() {
+		StringBuffer result = new StringBuffer();
+		result.append(Formatting.indentation(data, CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
+		result.append(Formatting.centered(esame, CartellaSanitariaMain.LARGHEZZA_ALTRE_COLONNE));
+		result.append(Formatting.centered(String.valueOf(valore), CartellaSanitariaMain.LARGHEZZA_ALTRE_COLONNE));
+		return result.toString();
+	}
+	
+	/*
+	 * SCHEDA ESAME MISURABILE
+	 * Esame: ...
+	 * Raccomandazioni: ...
+	 */
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append(TITOLO);
 		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito, valore));
 		return result.toString();
+<<<<<<< HEAD
 
 }
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 }

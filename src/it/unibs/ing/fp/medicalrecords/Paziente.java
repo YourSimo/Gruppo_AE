@@ -24,7 +24,6 @@ public class Paziente implements Serializable {
 											+ "Codice Sanitario: %s%n"
 											+ "Gruppo Sanguigno: %s%n";
 
-	
 	private String nome;
 	private String cognome;
 	private String indirizzo;
@@ -66,7 +65,7 @@ public class Paziente implements Serializable {
     }
     
     public String nomeCognome() {
-		return nome + " " + cognome;
+		return cognome + " " + nome;
 	}
     
 

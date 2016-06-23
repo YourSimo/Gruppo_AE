@@ -13,38 +13,36 @@ import it.unibs.ing.fp.library.Formatting;
 public class Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME";
 	private static final String DESCRIZIONE = "Esame: %s%n, "
-											+ "Raccomandazioni: %s%n,"
 											+ "Luogo: %s%n,"
 											+ "Data: %s%n,"
 											+ "Ora: %s%n,"
+											+ "Raccomandazioni: %s%n,"
 											+ "Esito: %s%n,";	
 	
 	protected String esame;
-	protected String raccomandazioni;
 	protected String luogo;
 	protected String data;
 	protected String ora;
+	protected String raccomandazioni;
 	protected String esito;	
+	
 	/**
-	 * Costruttore.	
-	 * @param nomeEsame
-	 * @param raccomandazioni
+	 * Costruttore.
+	 * @param esame
 	 * @param luogo
 	 * @param data
 	 * @param ora
+	 * @param raccomandazioni
+	 * @param esito
 	 */
-
-	
-	
 	public Esame(String esame, String luogo, String data, String ora, String raccomandazioni, String esito) {
 		this.esame = esame;
 		this.raccomandazioni = raccomandazioni;
 		this.luogo = luogo;
 		this.data = data;
 		this.ora = ora;
-		this.esito=esito;
+		this.esito = esito;
 	}
-
 
 	//	data	nomeEsame
 	public String toSummary() {
@@ -62,9 +60,7 @@ public class Esame implements Serializable {
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append(TITOLO);
-		result.append(String.format(DESCRIZIONE, esame, raccomandazioni, luogo, data, ora, esito));
+		result.append(String.format(DESCRIZIONE, esame, luogo, data, ora, raccomandazioni, esito));
 		return result.toString();
 	}
-
-	
 }

@@ -7,7 +7,6 @@ import it.unibs.ing.fp.library.Formatting;
 /**
  * <h1> Class CartellaSanitaria </h1>
  * <p>
- * 
  * @author Simone Cavicchioli
  *
  */
@@ -15,7 +14,6 @@ public class CartellaSanitaria implements Serializable {
 	private static final String TITOLO = "CARTELLA SANITARIA";
 	private static final String DESCRIZIONE = "PAZIENTE: %s%nESAMI:";
 	private static final String[] TITOLI = {"N°", "DATA", "NOME", "VALORE"};
-	
 	
 	private Paziente paziente;
 	private ListaEsami listaEsami;
