@@ -28,7 +28,7 @@ public class CartellaSanitariaMain {
 	
 
 	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], scheda Esame [E], Aggiungere un esame [A] o Uscire [U] ";
-	private static final String VALID_CHAR = "PEAU";
+	private static final String VALID_CHAR = "PEAUpeau";
 	private static final String CHOISE_ERR = "ATTENZIONE INSERIMENTO ERRATO";
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
@@ -79,11 +79,8 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
 		
- 		//	System.out.println(myCartellaSanitaria.toString());
- 		
 		mainOptions(myCartellaSanitaria);
 		
-	
 		System.out.println(MSG_SALVA);
 		OutputData.uploadSingleObject(fileCartellaSanitaria, myCartellaSanitaria);
 	
@@ -98,17 +95,21 @@ public class CartellaSanitariaMain {
  			char scelta = InputData.readCharLimitedSensitive(MSG_NEXT, VALID_CHAR);
  			switch(scelta) {
  				case 'P' :
+ 				case 'p' :
  					System.out.println(cs.getPaziente().toString());
  					homeScreen();
  					break;
  				case 'E' :
+ 				case 'e' :
  					examOptions(cs);
  					homeScreen();
  					break;
  				case 'A' :
+ 				case 'a' :
  					cs.getListaEsami().addExam(Utility.sceltaCostruttoreEsame());
  					break;
  				case 'U' :
+ 				case 'u' :
  					finito = true;
  					break;
  				default :
