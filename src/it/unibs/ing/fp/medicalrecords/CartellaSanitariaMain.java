@@ -80,7 +80,7 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
 			*/
-		myCartellaSanitaria = Utility.makeMedicalRecords();
+		//	myCartellaSanitaria = Utility.makeMedicalRecords();
 		mainOptions(myCartellaSanitaria);
 		
 		System.out.println(MSG_SALVA);
