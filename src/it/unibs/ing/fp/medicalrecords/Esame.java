@@ -17,7 +17,7 @@ public class Esame implements Serializable {
 											+ "Data: %s%n,"
 											+ "Ora: %s%n,"
 											+ "Raccomandazioni: %s%n,"
-											+ "Esito: %s%n,";	
+											+ "Esito: %s%n";	
 	
 	protected String esame;
 	protected String luogo;

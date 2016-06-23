@@ -83,6 +83,7 @@ public class Utility implements Serializable {
 	//arbitrria lunghezza stabilita x la stringa del codice sanitario
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;
 	
+	private final static String ESAME_MISURABILE[] = {"GLUCOSIO","GLICEMIA","COLESTEROLO"};
 	
 	
 	
@@ -185,7 +186,7 @@ public class Utility implements Serializable {
 	private static ListaEsami makeExamList() {
 		ListaEsami listaEsami = new ListaEsami();
 		do {
-			Esame nuovoEsame = makeExam();
+			Esame nuovoEsame = makeExam(esame);
 			listaEsami.addExam(nuovoEsame);
 		} while (InputData.yesOrNo(MSG_ALTRI_ESAMI));
 		
@@ -193,15 +194,10 @@ public class Utility implements Serializable {
 	}
 
 	
-	private static Esame makeExam() {
+	private static Esame makeExam(String esame) {
 		//verifica esame
-		String esame = InputData.readString(MSG_ESAME);
 		
-		while (convalidaEsame(esame) == false) {
-			System.out.println(MSG_ERRORE_INSERIMENTO);
-		    esame = null;
-			esame = InputData.readString(MSG_ESAME);	
-		};
+		
 		//verifica data
 		
 		String data = InputData.readString(MSG_DATA);
@@ -248,6 +244,20 @@ public class Utility implements Serializable {
 		return new Esame (esame, luogo, data, ora, esito, raccomandazioni); 
 	}
 	
+	private EsameMisurabile makeMeasurableExam (String esame){
+		String valore = InputData.readString(MSG_TELEFONO);
+
+		while (convalidaTelefono(valore) == false) {
+			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
+		    valore = null;
+			valore = InputData.readString(MSG_TELEFONO);
+			
+			return (makeExam(esame), valore);
+		};
+		
+		
+		
+	}
 	
 	//	Metodi Validità
 	
@@ -307,13 +317,6 @@ public class Utility implements Serializable {
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-	public static boolean convalidaDataNascita(String dataNascita){
-		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita))
-			return true;
-		else
-			return false;
-
-	
 	private static boolean convalidaDataNascita(String dataNascita) {
 		if (Pattern.matches(REGEX_DATA_NASCITA, dataNascita)) return true;
 		else return false;
@@ -360,4 +363,18 @@ public class Utility implements Serializable {
 		}
 		return new String(arr);	//	l'array è trasformato in stringa e viene restituita
 	}
+	
+	public static void sceltaCostruttoreEsame(){
+		String esame = InputData.readString(MSG_ESAME);
+		while (convalidaEsame(esame) == false) {
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    esame = null;
+			esame = InputData.readString(MSG_ESAME);	
+		};
+		for ( int i = 0; i <ESAME_MISURABILE.length; i++)
+			if (esame.equalsIgnoreCase(ESAME_MISURABILE[i])) makeMeasurableExam(esame);
+			else makeExam(esame);
+		
+	}
+	
 }
