@@ -26,11 +26,12 @@ public class CartellaSanitariaMain {
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
 
-	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], Esame [E] o Uscire [U] ";
-	private static final String VALID_CHAR = "PEU";
-	private static final String CHOISE_ERR = "Attenzione: inserimento errato";
-	private static final String MSG_NEXT_EXAM = null;
-	private static final String VALID_CHAR_EXAM = null;
+	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], scheda Esame [E], Aggiungere un Esame [A] o Uscire [U] ";
+	private static final String VALID_CHAR = "PEAU";
+	private static final String CHOISE_ERR = "ATTENZIONE INSERIMENTO ERRATO";
+	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
+	//	private static final String VALID_CHAR_EXAM = null;
+	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME: ";
 
 	
 	public static void main(String[] args) {
@@ -107,6 +108,9 @@ public class CartellaSanitariaMain {
  				case 'E' :
  					examOptions(cs);
  					break;
+ 				case 'A' :
+ 					cs.getListaEsami().addExam(Utility.makeExam());	// modifica in Utility.whichExam()
+ 					break;
  				case 'U' :
  					finito = true;
  					break;
@@ -118,7 +122,21 @@ public class CartellaSanitariaMain {
 	}
 	
 	private static void examOptions(CartellaSanitaria cs) {
+		String datoInserito = InputData.readStringNotEmpty(MSG_NEXT_EXAM);
+		if(Utility.convalidaTelefono(datoInserito)) 
+			System.out.println(cs.getListaEsami().getExam(Integer.parseInt(datoInserito)).toString());
+		else if(Utility.convalidaNome(datoInserito)) {
+			boolean trovato = false;
+			for(int i = 0; i < cs.getListaEsami().getSize(); i++)
+				if(datoInserito.equals(cs.getListaEsami().getExam(i).esame)) {
+					System.out.println(cs.getListaEsami().getExam(i).toString());
+					trovato = true;
+				}
+			if(trovato == false) System.out.println(MSG_NO_EXAM);
+		}
+		else System.out.println(CHOISE_ERR + datoInserito);
 		//	Secondo switch/if e else: n° Esame o tipoEsame
+		//	
 		//	Per ogni Esame richiesta di modifica
 	}
 }

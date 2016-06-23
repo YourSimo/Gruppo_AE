@@ -24,7 +24,7 @@ public class EsameMisurabile extends Esame implements Serializable {
 	public final static int MIN_GLUCOSIO = 60;
 	public final static int MAX_GLUCOSIO = 109;
 	public final static int MIN_COLESTEROLO = 0;
-	public final static int MAX_COLESTEROLO=  200;
+	public final static int MAX_COLESTEROLO = 200;
 	
 	private int valore;
 	

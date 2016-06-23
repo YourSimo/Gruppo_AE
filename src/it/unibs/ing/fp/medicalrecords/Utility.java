@@ -40,7 +40,7 @@ public class Utility implements Serializable {
 	//messaggi per esame
 	
 	private final static String MSG_ESAME = "Inserisca l'esame che vuole aggiungere:";		
-	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto:";
+	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa):";
 	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto:";
 	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto:";
 	private final static String MSG_ESITO = "Inserisca l'esito dell'esame:";
@@ -90,9 +90,14 @@ public class Utility implements Serializable {
 		return new CartellaSanitaria(makePatient(), makeExamList());
 	}
 	
-
 	
-	public static Paziente makePatient() {
+	public static void addExam() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	private static Paziente makePatient() {
 		System.out.println(MSG_INTRO_INSERIMENTO);
 		//************************************************
 		String nome = InputData.readString(MSG_NOME);
@@ -193,7 +198,7 @@ public class Utility implements Serializable {
 	}
 
 	
-	private static Esame makeExam() {
+	public static Esame makeExam() {
 		//verifica esame
 		String esame = InputData.readString(MSG_ESAME);
 		
@@ -281,7 +286,7 @@ public class Utility implements Serializable {
 		else return false;	
 	}
 	
-	private static boolean convalidaNome(String nome) {
+	public static boolean convalidaNome(String nome) {
     	if (Pattern.matches(REGEX_ALFABETO, nome)) return true;
     	else return false;
     }
@@ -295,7 +300,7 @@ public class Utility implements Serializable {
     	else return false;
 	}
 	
-	private static boolean convalidaTelefono(String telefono) {
+	public static boolean convalidaTelefono(String telefono) {
 		if (Pattern.matches(REGEX_TELEFONO, telefono)) return true;
     	else return false;
 	}
