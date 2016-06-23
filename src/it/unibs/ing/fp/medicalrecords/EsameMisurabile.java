@@ -11,13 +11,13 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class EsameMisurabile extends Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME MISURABILE";
-	private static final String DESCRIZIONE = "Esame: %s%n"
+	private static final String DESCRIZIONE = "Esame:           %s%n"
 											+ "Raccomandazioni: %s%n"
-											+ "Luogo: %s%n"
-											+ "Data: %s%n"
-											+ "Ora: %s%n"
-											+ "Esito: %s%n"
-											+ "Valore: %s%n";	
+											+ "Luogo:           %s%n"
+											+ "Data:            %s%n"
+											+ "Ora:             %s%n"
+											+ "Esito:           %s%n"
+											+ "Valore:          %s%n";	
 	
 	public final static int MIN_GLICEMIA = 60;
 	public final static int MAX_GLICEMIA = 99;
@@ -69,7 +69,7 @@ public class EsameMisurabile extends Esame implements Serializable {
 	/* -----------------------
 	 * SCHEDA ESAME MISURABILE
 	 * -----------------------
-	 * Esame: ...
+	 * Esame:           ...
 	 * Raccomandazioni: ...
 	 * ...
 	 * -----------------------

@@ -61,10 +61,10 @@ public class CartellaSanitariaMain {
 	
 		if (!caricamentoRiuscito) {
 			System.out.println(MSG_NO_FILE);
-			//	myCartellaSanitaria = Utility.makeMedicalRecords();
+			myCartellaSanitaria = Utility.makeMedicalRecords();
 		}
-			
-			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
+			/*
+			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSSMRA96A01B157F", "Codice Sanitario", "A+");
 			
 			Esame e1 = new Esame("Radiografia", "Brescia", "21/04/2014", "17:40", "Raccom.", "Esito");
 			Esame e2 = new Esame("Ecografia", "Mantova", "22/05/2015", "8:30", "Raccom.", "Esito");
@@ -79,8 +79,7 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e4);
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
-			
-		//	myCartellaSanitaria = Utility.makeMedicalRecords();
+			*/
 		mainOptions(myCartellaSanitaria);
 		
 		System.out.println(MSG_SALVA);

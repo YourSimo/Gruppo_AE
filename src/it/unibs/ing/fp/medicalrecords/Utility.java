@@ -30,7 +30,7 @@ public class Utility implements Serializable {
 
     
 	private final static String MSG_ERRORE_INSERIMENTO_ALFABETO = "Errore nell'inserimento dati. La stringa inserita deve contenere solo lettere. Ritenti.";
-	private final static String MSG_ERRORE_INSERIMENTO_INDIRIZZO = "Errore nell'inserimento dati. I dati inseriti devono essere nel formato aaaaaa aaaaaa,222. Ritenti";
+	//	private final static String MSG_ERRORE_INSERIMENTO_INDIRIZZO = "Errore nell'inserimento dati. I dati inseriti devono essere nel formato aaaaaa aaaaaa,222. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_NUMERI = "Errore nell'inserimento dati. La stringa inserita deve contenere solo numeri. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_EMAIL = "Errore nell'inserimento dati. La stringa deve essere nel formato aaaaaa.aaaaaa@aaaaa.aaa. Ritenti";
 	private final static String MSG_ERRORE_INSERIMENTO_DATA_NASCITA = "Errore nell'inserimento dati. La stringa inserita deve essere nel formato gg/mm/aaaa. Ritenti";
@@ -44,7 +44,7 @@ public class Utility implements Serializable {
 	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa): ";
 	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto: ";
 	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo:mm): ";
-	private final static String MSG_ESITO = "Inserisca l'esito dell'esame ( nel caso non sia disponibile inserire ------------: ";
+	private final static String MSG_ESITO = "Inserisca l'esito dell'esame (nel caso non sia disponibile inserire ------------): ";
 	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame: ";
 	private final static String MSG_VALORE = "Inserisca il valore dell'esame: ";
 	  
@@ -74,7 +74,7 @@ public class Utility implements Serializable {
 	private final static String REGEX_EMAIL = "^[a-zA-Z0-9._%-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
 	//numeri in formato gg/mm/aaaa 
 	private final static String REGEX_DATA_NASCITA = "(0[1-9]|1[0-9]|2[0-9]|3[0-1])[/](0[1-9]|1[1-2])[/](19|20)[0-9]{2}";
-	//la regex del luogo di nascita � l'alfabeto
+	//la regex del luogo di nascita è l'alfabeto
 	//composizione del codice fiscale rispettando numeri e lettere
 	private final static String REGEX_CODICE_FISCALE = "[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]";
 

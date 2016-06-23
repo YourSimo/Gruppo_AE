@@ -12,12 +12,12 @@ import it.unibs.ing.fp.library.Formatting;
  */
 public class Esame implements Serializable {
 	private static final String TITOLO = "SCHEDA ESAME";
-	private static final String DESCRIZIONE = "Esame: %s%n"
-											+ "Luogo: %s%n"
-											+ "Data: %s%n"
-											+ "Ora: %s%n"
+	private static final String DESCRIZIONE = "Esame:           %s%n"
+											+ "Luogo:           %s%n"
+											+ "Data:            %s%n"
+											+ "Ora:             %s%n"
 											+ "Raccomandazioni: %s%n"
-											+ "Esito: %s%n";	
+											+ "Esito:           %s%n";	
 	
 	protected String esame;
 	protected String luogo;
@@ -55,7 +55,7 @@ public class Esame implements Serializable {
 	/* ------------
 	 * SCHEDA ESAME
 	 * ------------
-	 * Esame: ...
+	 * Esame:           ...
 	 * Raccomandazioni: ...
 	 * ...
 	 * ------------
