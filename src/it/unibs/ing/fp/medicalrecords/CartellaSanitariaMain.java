@@ -37,6 +37,9 @@ public class CartellaSanitariaMain {
 
 	private static final String [] TITOLI = {"DATA", "VALORE"};
 	
+	private static final String MSG_DATA = null;
+	private static final String MSG_ERRORE_INSERIMENTO = null;
+	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
 		
@@ -80,7 +83,7 @@ public class CartellaSanitariaMain {
 			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
 			*/
-		myCartellaSanitaria = Utility.makeMedicalRecords();
+		//	myCartellaSanitaria = Utility.makeMedicalRecords();
 		mainOptions(myCartellaSanitaria);
 		
 		System.out.println(MSG_SALVA);
@@ -123,7 +126,7 @@ public class CartellaSanitariaMain {
 	
 	private static void examOptions(CartellaSanitaria cs) {
 		String datoInserito = InputData.readStringNotEmpty(MSG_NEXT_EXAM);
-		if(Utility.convalidaTelefono(datoInserito)) 
+		if(Utility.convalidaNumeri(datoInserito)) 
 			System.out.println(cs.getListaEsami().getExam(Integer.parseInt(datoInserito) - 1).toString());
 		
 		else if(Utility.convalidaNome(datoInserito)) {
@@ -153,8 +156,26 @@ public class CartellaSanitariaMain {
 	
 	private static void editExam(Esame examToEdit) {
 		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
+<<<<<<< HEAD
+=======
+
+			if(InputData.yesOrNo(MSG_EDIT_DATA)){
+				String data = InputData.readString(MSG_DATA);
+				
+				while (Utility.convalidaData(data) == false) {
+					System.out.println(MSG_ERRORE_INSERIMENTO);
+				    data = null;
+					data = InputData.readString(MSG_DATA);	
+				};
+			}
+
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 			
 			//	Luogo e orario
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 			
 			//	Valore
 		}
