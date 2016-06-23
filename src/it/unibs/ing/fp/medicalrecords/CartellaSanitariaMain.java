@@ -33,7 +33,12 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
+<<<<<<< HEAD
+	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
+
+=======
 	
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	private static final String [] TITOLI = {"DATA", "VALORE"};
 	
 	
@@ -152,6 +157,36 @@ public class CartellaSanitariaMain {
 	private static void homeScreen() {
 		String datoInserito = InputData.readString(MSG_HOME_SCREEN);
 		if(!datoInserito.equals(""));
+<<<<<<< HEAD
+	}
+	
+	private static void editExam(Esame examToEdit) {
+		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
+<<<<<<< HEAD
+=======
+
+			if(InputData.yesOrNo(MSG_EDIT_DATA)){
+				String data = InputData.readString(MSG_DATA);
+				
+				while (Utility.convalidaData(data) == false) {
+					System.out.println(MSG_ERRORE_INSERIMENTO);
+				    data = null;
+					data = InputData.readString(MSG_DATA);	
+				};
+			}
+
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+			
+			//	Luogo e orario
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
+			
+			//	Valore
+		}
+=======
+>>>>>>> branch 'master' of https://github.com/YourSimo/Gruppo_AE.git
 	}
 	
 	//	Data	Valore
