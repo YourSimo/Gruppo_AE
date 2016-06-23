@@ -34,9 +34,8 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
 	
-
 	private static final String [] TITOLI = {"DATA", "VALORE"};
-	private static final String MSG_EDIT_LUOGO = null;
+	
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -155,8 +154,6 @@ public class CartellaSanitariaMain {
 		String datoInserito = InputData.readString(MSG_HOME_SCREEN);
 		if(!datoInserito.equals(""));
 	}
-	
-	
 	
 	//	Data	Valore
 	private static String heading() {
