@@ -27,11 +27,10 @@ public class CartellaSanitariaMain {
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
 
-	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], scheda Esame [E], Aggiungere un Esame [A] o Uscire [U] ";
+	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], scheda Esame [E], Aggiungere un esame [A] o Uscire [U] ";
 	private static final String VALID_CHAR = "PEAU";
 	private static final String CHOISE_ERR = "ATTENZIONE INSERIMENTO ERRATO";
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
-	//	private static final String VALID_CHAR_EXAM = null;
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
 	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
@@ -91,6 +90,7 @@ public class CartellaSanitariaMain {
 		System.out.println(MSG_OUTRO);
 	}
 	
+	
 	private static void mainOptions(CartellaSanitaria cs) {
 		boolean finito = false;
  		do {
@@ -106,7 +106,7 @@ public class CartellaSanitariaMain {
  					homeScreen();
  					break;
  				case 'A' :
- 					cs.getListaEsami().addExam(Utility.sceltaCostruttoreEsame());	// modifica in Utility.whichExam()
+ 					cs.getListaEsami().addExam(Utility.sceltaCostruttoreEsame());
  					break;
  				case 'U' :
  					finito = true;
