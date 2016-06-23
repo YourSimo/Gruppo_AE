@@ -34,6 +34,9 @@ public class CartellaSanitariaMain {
 	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
 	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
+	private static final String MSG_EDIT_DATA = "Vuoi modifare la data?";
+	private static final String MSG_EDIT_ORA = "Vuoi modifare l' ora?";
+	private static final String MSG_EDIT_VALORE = "Vuoi modifare il valore?";
 
 	private static final String [] TITOLI = {"DATA", "VALORE"};
 	
@@ -151,7 +154,15 @@ public class CartellaSanitariaMain {
 	
 	private static void editExam(Esame examToEdit) {
 		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
-			//	Luogo e orario
+			if(InputData.yesOrNo(MSG_EDIT_DATA)){
+				String data = InputData.readString(MSG_DATA);
+				
+				while (convalidaData(data) == false) {
+					System.out.println(MSG_ERRORE_INSERIMENTO);
+				    data = null;
+					data = InputData.readString(MSG_DATA);	
+				};
+			}
 			
 			//	Valore
 		}
