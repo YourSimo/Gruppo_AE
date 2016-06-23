@@ -5,7 +5,7 @@ import it.unibs.ing.fp.library.Formatting;
 
 /**
  * <h1> Class EsameMisurabile </h1>
- * 
+ * <p>
  * @author Matteo Bellicini
  *
  */
@@ -35,6 +35,10 @@ public class EsameMisurabile extends Esame implements Serializable {
 	
 	public EsameMisurabile(Esame esame, int valore) {
 		super(esame.esame, esame.luogo, esame.data, esame.ora, esame.raccomandazioni, esame.esito);
+		this.valore = valore;
+	}
+	
+	public void setValore(int valore) {
 		this.valore = valore;
 	}
 	

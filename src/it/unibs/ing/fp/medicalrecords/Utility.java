@@ -52,6 +52,13 @@ public class Utility implements Serializable {
 	
 	private final static String MSG_ERRORE_INSERIMENTO = "Errore nell'inserimento dati. Dato non valido. Ritenti.";
 
+	
+	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
+	private static final String MSG_EDIT_DATA = "Vuoi modifare la data?";
+	private static final String MSG_EDIT_LUOGO = "Vuoi modifare il luogo?";
+	private static final String MSG_EDIT_ORA = "Vuoi modifare l'ora?";
+	private static final String MSG_EDIT_VALORE = "Vuoi modifare il valore?";
+	
 	/* regular expressions, permettono di creare una sringa formata da 
 	 * caratteri speciali che il computer interpreta appositamente. 
 	 * Sono usate per verificare se delle stringhe rispettano un determinato
@@ -114,12 +121,13 @@ public class Utility implements Serializable {
 		};
 		//**************************************************
 		String indirizzo = InputData.readString(MSG_INDIRIZZO);
-		
+		/*
 		while (convalidaIndirizzo(indirizzo) == false) {
 			System.out.println(MSG_ERRORE_INSERIMENTO_INDIRIZZO);
 		    indirizzo = null;
 			indirizzo = InputData.readString(MSG_INDIRIZZO);	
 		};
+		*/
 		//***************************************************
 		String telefono = InputData.readString(MSG_TELEFONO);
 
@@ -255,14 +263,15 @@ public class Utility implements Serializable {
 	}
 	
 	private static EsameMisurabile makeMeasurableExam (String esame){
-		String valore = InputData.readString(MSG_TELEFONO);
-
+		Esame nuovoEsame = makeExam(esame);
+		
+		String valore = InputData.readString(MSG_VALORE);
 		while (convalidaNumeri(valore) == false) {
 			System.out.println(MSG_ERRORE_INSERIMENTO_NUMERI);
 		    valore = null;
 			valore = InputData.readString(MSG_VALORE);	
 		};
-		return new EsameMisurabile(makeExam(esame), Integer.parseInt(valore));
+		return new EsameMisurabile(nuovoEsame, Integer.parseInt(valore));
 	}
 	
 	//	Metodi Validità
@@ -303,10 +312,12 @@ public class Utility implements Serializable {
 		return convalidaNome(cognome);
 	}
 	
+	/*
 	private static boolean convalidaIndirizzo(String indirizzo) {
 		if (Pattern.matches(REGEX_INDIRIZZO, indirizzo)) return true;
     	else return false;
 	}
+	*/
 	
 	public static boolean convalidaNumeri(String telefono) {
 		if (Pattern.matches(REGEX_NUMERI, telefono)) return true;
@@ -363,5 +374,56 @@ public class Utility implements Serializable {
 			arr[i] = (char) (n < 10 ? '0'+n : 'a'+n-10);	//	all'isesimo elemento dell'array si mette un numero se n è minore di dieci, o una lettera se n è maggiore
 		}
 		return new String(arr);	//	l'array è trasformato in stringa e viene restituita
+	}
+	
+	public static void editExam(Esame examToEdit) {
+		if(InputData.yesOrNo(MSG_EDIT_EXAM)) {
+
+			if(InputData.yesOrNo(MSG_EDIT_DATA)){
+				String data = InputData.readString(MSG_DATA);
+				
+				while (Utility.convalidaData(data) == false) {
+					System.out.println(MSG_ERRORE_INSERIMENTO);
+				    data = null;
+					data = InputData.readString(MSG_DATA);	
+				}
+				examToEdit.data = data;
+			}
+			
+			if(InputData.yesOrNo(MSG_EDIT_LUOGO)){
+				String luogo = InputData.readString(MSG_LUOGO);
+				
+				while (Utility.convalidaLuogo(luogo) == false) {
+					System.out.println(MSG_ERRORE_INSERIMENTO);
+				    luogo = null;
+					luogo = InputData.readString(MSG_LUOGO);	
+				}
+				examToEdit.luogo = luogo;
+			}
+			
+			if(InputData.yesOrNo(MSG_EDIT_ORA)){
+				String ora = InputData.readString(MSG_ORA);
+				
+				while (Utility.convalidaOra(ora) == false) {
+					System.out.println(Utility.MSG_ERRORE_INSERIMENTO);
+					ora = null;
+					ora = InputData.readString(MSG_ORA);	
+				}
+				examToEdit.ora = ora;
+			}
+			if(examToEdit instanceof EsameMisurabile) {
+
+				if(InputData.yesOrNo(MSG_EDIT_VALORE)){
+					String valore = InputData.readString(MSG_VALORE);
+				
+					while (Utility.convalidaNumeri(valore) == false) {
+						System.out.println(Utility.MSG_ERRORE_INSERIMENTO);
+						valore = null;
+						valore = InputData.readString(MSG_VALORE);	
+					}
+					((EsameMisurabile) examToEdit).setValore(Integer.parseInt(valore));
+				}
+			}
+		}
 	}
 }
