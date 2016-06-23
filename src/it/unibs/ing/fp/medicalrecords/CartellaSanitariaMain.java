@@ -26,7 +26,6 @@ public class CartellaSanitariaMain {
 	
 	private static final String MSG_SALVA = "SALVATAGGIO DATI";
 	
-
 	private static final String MSG_NEXT = "Cosa vuoi fare? Visualizzare scheda Paziente [P], scheda Esame [E], Aggiungere un esame [A] o Uscire [U] ";
 	private static final String VALID_CHAR = "PEAUpeau";
 	private static final String CHOISE_ERR = "ATTENZIONE INSERIMENTO ERRATO";
@@ -35,7 +34,6 @@ public class CartellaSanitariaMain {
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
 	
 	private static final String [] TITOLI = {"DATA", "VALORE"};
-	
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
