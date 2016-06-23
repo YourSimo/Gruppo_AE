@@ -191,11 +191,24 @@ public class Utility implements Serializable {
 	private static ListaEsami makeExamList() {
 		ListaEsami listaEsami = new ListaEsami();
 		do {
-			Esame nuovoEsame = makeExam(esame);
+			Esame nuovoEsame = sceltaCostruttoreEsame();
 			listaEsami.addExam(nuovoEsame);
 		} while (InputData.yesOrNo(MSG_ALTRI_ESAMI));
 		
 		return listaEsami;
+	}
+	
+	public static Esame sceltaCostruttoreEsame(){
+		String esame = InputData.readString(MSG_ESAME);
+		while (convalidaEsame(esame) == false) {
+			System.out.println(MSG_ERRORE_INSERIMENTO);
+		    esame = null;
+			esame = InputData.readString(MSG_ESAME);	
+		}
+		for (int i = 0; i < ESAME_MISURABILE.length; i++)
+			if (esame.equalsIgnoreCase(ESAME_MISURABILE[i])) 
+				return (Esame)makeMeasurableExam(esame);
+		return makeExam(esame);
 	}
 
 	
@@ -246,22 +259,18 @@ public class Utility implements Serializable {
 		    raccomandazioni = null;
 			raccomandazioni = InputData.readString(MSG_RACCOMANDAZIONI);	
 		};
-		return new Esame (esame, luogo, data, ora, esito, raccomandazioni); 
+		return new Esame(esame, luogo, data, ora, esito, raccomandazioni); 
 	}
 	
-	private EsameMisurabile makeMeasurableExam (String esame){
+	private static EsameMisurabile makeMeasurableExam (String esame){
 		String valore = InputData.readString(MSG_TELEFONO);
 
 		while (convalidaTelefono(valore) == false) {
 			System.out.println(MSG_ERRORE_INSERIMENTO_TELEFONO);
 		    valore = null;
-			valore = InputData.readString(MSG_TELEFONO);
-			
-			return (makeExam(esame), valore);
+			valore = InputData.readString(MSG_TELEFONO);	
 		};
-		
-		
-		
+		return new EsameMisurabile(makeExam(esame), Integer.parseInt(valore));
 	}
 	
 	//	Metodi Validità
@@ -366,18 +375,4 @@ public class Utility implements Serializable {
 		}
 		return new String(arr);	//	l'array è trasformato in stringa e viene restituita
 	}
-	
-	public static void sceltaCostruttoreEsame(){
-		String esame = InputData.readString(MSG_ESAME);
-		while (convalidaEsame(esame) == false) {
-			System.out.println(MSG_ERRORE_INSERIMENTO);
-		    esame = null;
-			esame = InputData.readString(MSG_ESAME);	
-		};
-		for ( int i = 0; i <ESAME_MISURABILE.length; i++)
-			if (esame.equalsIgnoreCase(ESAME_MISURABILE[i])) makeMeasurableExam(esame);
-			else makeExam(esame);
-		
-	}
-	
 }

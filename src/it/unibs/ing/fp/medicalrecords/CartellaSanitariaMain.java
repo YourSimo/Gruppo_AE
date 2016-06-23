@@ -109,7 +109,7 @@ public class CartellaSanitariaMain {
  					examOptions(cs);
  					break;
  				case 'A' :
- 					cs.getListaEsami().addExam(Utility.makeExam());	// modifica in Utility.whichExam()
+ 					cs.getListaEsami().addExam(Utility.sceltaCostruttoreEsame());	// modifica in Utility.whichExam()
  					break;
  				case 'U' :
  					finito = true;

@@ -36,7 +36,6 @@ public class EsameMisurabile extends Esame implements Serializable {
 	public EsameMisurabile(Esame esame, int valore) {
 		super(esame.esame, esame.luogo, esame.data, esame.ora, esame.raccomandazioni, esame.esito);
 		this.valore = valore;
-	
 	}
 	
 	//verifica inserimento valore valido
