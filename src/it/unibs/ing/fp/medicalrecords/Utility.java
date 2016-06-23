@@ -43,7 +43,7 @@ public class Utility implements Serializable {
 	private final static String MSG_DATA = "Inserisca la data in cui è stato svolto (gg/mm/aaaa): ";
 	private final static String MSG_LUOGO = "Inserisca il luogo in cui è stato svolto: ";
 	private final static String MSG_ORA = "Inserisca l'orario in cui è stato svolto (oo:mm): ";
-	private final static String MSG_ESITO = "Inserisca l'esito dell'esame: ";
+	private final static String MSG_ESITO = "Inserisca l'esito dell'esame ( nel caso non sia disponibile inserire ------------: ";
 	private final static String MSG_RACCOMANDAZIONI = "Inserisca le raccomandazioni per eseguire l'esame: ";
 	  
 	private static final String MSG_ALTRI_ESAMI = "Inserire un altro esame in elenco?";
@@ -237,15 +237,10 @@ public class Utility implements Serializable {
 		    ora = null;
 			ora = InputData.readString(MSG_ORA);	
 		};
-		//verifica esito
+		//nessun controllo sull'esito x' l'utente potrebbe vler inserire una variet� di dati troppo ampia
 		
 		String esito = InputData.readString (MSG_ESITO);
 		
-		while (convalidaEsito(esito) == false) {
-			System.out.println(MSG_ERRORE_INSERIMENTO);
-		    esito = null;
-			esito = InputData.readString(MSG_ESITO);	
-		};
 		String raccomandazioni = InputData.readString (MSG_RACCOMANDAZIONI);
 		
 		while (convalidaRaccomandazioni(raccomandazioni) == false) {
@@ -274,10 +269,7 @@ public class Utility implements Serializable {
 		else return false;
 	}
 	
-	private static boolean convalidaEsito(String esito) {
-		if (Pattern.matches(REGEX_ALFABETO, esito)) return true;
-		else return false;
-	}
+	
 	
 	private static boolean convalidaOra(String ora) {
 		if (Pattern.matches(REGEX_ORA, ora)) return true;
