@@ -75,9 +75,12 @@ public class Paziente implements Serializable {
 	 * Cognome: ...
 	 * ...
 	 */
+    //restituisce una stringa formttata con gli attributi dell'oggetto
     public String toString() {
     	StringBuffer result = new StringBuffer();
+    	//stampa il titolo tra due righe divisorie di trattini
     	result.append(Formatting.framing(TITOLO));
+    	//stampa la lista dei nomi dei parametri e di seguito i dati
     	result.append(String.format(DESCRIZIONE, nome, cognome, indirizzo, telefono, email, dataNascita, luogoNascita, genere, codiceFiscale, codiceSanitario, gruppoSanguigno));
     	result.append(Formatting.cloneChar('-', TITOLO.length()));
     	return result.toString();
