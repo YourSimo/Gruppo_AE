@@ -92,7 +92,7 @@ public class Utility implements Serializable {
 	//arbitrria lunghezza stabilita x la stringa del codice sanitario
 	private final static int LUNGHEZZA_CODICE_SANITARIO = 10;
 	
-	public final static String ESAME_MISURABILE [] = {"GLUCOSIO","GLICEMIA","COLESTEROLO"};
+	public final static String ESAME_MISURABILE [] = {"GLUCOSIO", "GLICEMIA", "COLESTEROLO", "PRESSIONE"};
 	
 	
 	
