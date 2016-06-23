@@ -2,6 +2,7 @@ package it.unibs.ing.fp.medicalrecords;
 
 import java.io.File;
 
+import it.unibs.ing.fp.library.Formatting;
 import it.unibs.ing.fp.library.InputData;
 import it.unibs.ing.fp.library.OutputData;
 
@@ -31,10 +32,11 @@ public class CartellaSanitariaMain {
 	private static final String CHOISE_ERR = "ATTENZIONE INSERIMENTO ERRATO";
 	private static final String MSG_NEXT_EXAM = "Inserire n° Esame oppure il Tipo di Esame: ";
 	//	private static final String VALID_CHAR_EXAM = null;
-	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME: ";
+	private static final String MSG_NO_EXAM = "NON ESISTE ALCUN ESAME CON QUESTO NOME O L'ESAME NON HA UN ESITO";
 	private static final String MSG_HOME_SCREEN = "Per tornare alla schermata principale premere invio";
 	private static final String MSG_EDIT_EXAM = "Vuoi modifare i dati di questo esame";
 
+	private static final String [] TITOLI = {"DATA", "VALORE"};
 	
 	public static void main(String[] args) {
 		System.out.println(MSG_INTRO);
@@ -64,14 +66,18 @@ public class CartellaSanitariaMain {
 		}
 			Paziente paziente = new Paziente("Mario", "Rossi", "Via Branze 32", "1234567890", "m.rossi@mail.com", "01/01/1996", "Brescia", "M", "RSS MRA 96A01 B157F", "Codice Sanitario", "A+");
 			
-			Esame e1 = new Esame("Glicemia", "Brescia", "22/05/2015", "8:40", "Raccom.", "Esito");
-			Esame e2 = new Esame("Glicemia", "Brescia", "24/06/2016", "8:30", "Raccom.", "Esito");
-			Esame e3 = new EsameMisurabile("Colesterolo", "Brescia", "24/06/2016", "8:30", "Raccom.", "Esito", 70);
+			Esame e1 = new Esame("Radiografia", "Brescia", "21/04/2014", "17:40", "Raccom.", "Esito");
+			Esame e2 = new Esame("Ecografia", "Mantova", "22/05/2015", "8:30", "Raccom.", "Esito");
+			Esame e3 = new EsameMisurabile("Glicemia", "Brescia", "23/06/2016", "10:20", "Raccom.", "Esito", 70);
+			Esame e4 = new EsameMisurabile("Colesterolo", "Mantova", "24/07/2016", "18:00", "Raccom.", "Esito", 40);
+			Esame e5 = new EsameMisurabile("Glicemia", "Brescia", "23/06/2016", "10:20", "Raccom.", "Esito", 40);
 			
 			ListaEsami myListaEsami = new ListaEsami();
 			myListaEsami.addExam(e1);
 			myListaEsami.addExam(e2);
 			myListaEsami.addExam(e3);
+			myListaEsami.addExam(e4);
+			myListaEsami.addExam(e5);
 			myCartellaSanitaria = new CartellaSanitaria(paziente, myListaEsami);
 		
  		//	System.out.println(myCartellaSanitaria.toString());
@@ -84,20 +90,6 @@ public class CartellaSanitariaMain {
 	
 		System.out.println(MSG_OUTRO);
 	}
-	
-	/*
-	 * 	do {
-	 * 	switch() {
-	 * 		case 'U' :
-	 * 		break;
-	 * 		case 'E' :
-	 * 	-	Utente 	[U]
-	 * 	-	Esame 	[E]
-	 * 		-	n° Esame:
-	 * 		-	tipo Esame:
-	 * 	-	Chiudi	[C]
-	 * 	} while();
-	 */
 	
 	private static void mainOptions(CartellaSanitaria cs) {
 		boolean finito = false;
@@ -134,11 +126,18 @@ public class CartellaSanitariaMain {
 		else if(Utility.convalidaNome(datoInserito)) {
 			boolean trovato = false;
 			for(int i = 0; i < cs.getListaEsami().getSize(); i++)
-				if(datoInserito.equalsIgnoreCase(cs.getListaEsami().getExam(i).esame)) {
-					System.out.println(cs.getListaEsami().getExam(i).toSummary());
+				if(datoInserito.equalsIgnoreCase(cs.getListaEsami().getExam(i).esame) && cs.getListaEsami().getExam(i) instanceof EsameMisurabile) {
 					trovato = true;
+					break;
 				}
-			if(trovato == false) System.out.println(MSG_NO_EXAM);
+			if(trovato == true) {
+				System.out.print(Formatting.framing(datoInserito.toUpperCase()));
+				System.out.println(heading());
+				for(int i = 0; i < cs.getListaEsami().getSize(); i++)
+					if(datoInserito.equalsIgnoreCase(cs.getListaEsami().getExam(i).esame) && cs.getListaEsami().getExam(i) instanceof EsameMisurabile) 
+						System.out.println(((EsameMisurabile) cs.getListaEsami().getExam(i)).toResult());	
+			}
+			else if(trovato == false) System.out.println(MSG_NO_EXAM);
 		}
 		else System.out.println(CHOISE_ERR + datoInserito);	
 		//	Per ogni Esame richiesta di modifica
@@ -155,6 +154,16 @@ public class CartellaSanitariaMain {
 			
 			//	Valore
 		}
+	}
+	
+	//	Data	Valore
+	private static String heading() {
+		StringBuffer result = new StringBuffer();
+		result.append(Formatting.indentation(TITOLI[0], CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
+		for(int i = 1; i < TITOLI.length; i++) {
+			result.append(Formatting.centered(TITOLI[i], CartellaSanitariaMain.LARGHEZZA_ALTRE_COLONNE));
+		}
+		return result.toString();
 	}
 }
 

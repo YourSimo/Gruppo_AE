@@ -45,6 +45,14 @@ public class EsameMisurabile extends Esame implements Serializable {
 		return true;
 	}
 	
+	//	data valore
+	public String toResult() {
+		StringBuffer result = new StringBuffer();
+		result.append(data);
+		result.append(Formatting.indentation(String.valueOf(valore), CartellaSanitariaMain.LARGHEZZA_PRIMA_COLONNA));
+		return result.toString();
+	}
+	
 	//	data	nomeEsame	valore
 	public String toSummary() {
 		StringBuffer result = new StringBuffer();

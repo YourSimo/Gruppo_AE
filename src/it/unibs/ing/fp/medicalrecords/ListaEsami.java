@@ -3,6 +3,8 @@ package it.unibs.ing.fp.medicalrecords;
 import java.io.Serializable;
 import java.util.Vector;
 
+import it.unibs.ing.fp.library.Formatting;
+
 /**
  * <h1> Class ListaEsame </h1>
  * <p>
